@@ -187,11 +187,15 @@ function joinStringsWithSpaces(a, b, c, d, e) {
  *  //> "us"
  */
 function getFirstAndLastCharacter(a) {
-  let str = ''
-  let stringArr = [];
-  stringArr = a.split('');
-  str = `${stringArr[0]}${stringArr[stringArr.length - 1]}`;
-  return str;
+  // let str = ''
+  // let stringArr = [];
+  // stringArr = a.split('');
+  // str = `${stringArr[0]}${stringArr[stringArr.length - 1]}`;
+  // return str;
+
+  //This is a shorter way to get the same result as above. 
+  a = a.split('');
+  return `${a[0]}${a[a.length - 1]}`
 }
 
 // Do not change the code below.
