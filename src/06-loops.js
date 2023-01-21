@@ -172,10 +172,11 @@ function targetCount(array, target) {
  *  //> -1
  */
 function firstIndexFound(array, target) {
-  for (let item of array) {
-    if(item === target){
-      return array.indexOf(target)
-    } 
+  // let index;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+        return i;
+    }
 } return -1
 }
 
@@ -198,12 +199,21 @@ function firstIndexFound(array, target) {
  *  //> -1
  */
 function lastIndexFound(array, target) {
-  for (let item of array) {
-    if(item === target){
-      return array.lastIndexOf(target)
-    } 
+  for (let i = array.length - 1; i > 0; i--) {
+    if (array[i] === target) {
+        return i;
+    }
 } return -1
 }
+  //return array.lastIndexOf(target, array.length -1)
+
+
+  //   for (let item of array) {
+//     if(item === target){
+//       return array.lastIndexOf(target)
+//     } 
+// } return -1
+
 
 /**
  * timesIndex()
