@@ -9,12 +9,10 @@
  *  alwaysTrue();
  *  //> true
  */
-function alwaysTrue(true1) {
-  // let true1 === true;
-  // return true1;
-
+function alwaysTrue(a) {
+ var a = true;
+ return a;
 }
-
 /**
  * greet()
  * ---------------------
@@ -29,9 +27,7 @@ function alwaysTrue(true1) {
  *  //> "Hello, Ian."
  */
 function greet(name) {
-  var greeting = "Hello, " + name + ".";
-  return greeting;
-
+ return "Hello, " + name + "."
 }
 
 /**
@@ -48,10 +44,7 @@ function greet(name) {
  *  //> 30
  */
 function add(a, b) {
-  var a = 10;
-  var b = 20;
-  return a + b;
-
+ return a + b;
 }
 
 /**
@@ -68,10 +61,7 @@ function add(a, b) {
  *  //> 10
  */
 function multiply(a, b) {
-  var a = 2;
-  var b = 5;
-  return a * b;
-
+ return a * b;
 }
 
 /**
@@ -93,10 +83,7 @@ function multiply(a, b) {
  *  //> 8 // 10 + 6 = 16; 16/2 = 8;
  */
 function average(a, b) {
-  var a = 10;
-  var b = 6;
-  return (a + b) / 2;
-
+ return (a + b) / 2;
 }
 
 /**
@@ -117,11 +104,7 @@ function average(a, b) {
  *  //> 10 // 10 + 11 + 19 = 30; 30 / 3 = 10;
  */
 function averageThree(a, b, c) {
-  var a = 10;
-  var b = 11;
-  var c  = 19;
   return (a + b + c) / 3;
-
 }
 
 /**
@@ -142,12 +125,7 @@ function averageThree(a, b, c) {
  *  //> false
  */
 function compareTypes(a, b) {
-  // if (typeof a) === (typeof b){
-  //   return true
-  // } else {
-  //   return false
-  // }
-
+ return typeof a === typeof b;
 }
 
 /**
@@ -168,10 +146,7 @@ function compareTypes(a, b) {
  *  //> -50
  */
 function flipSign(a) {
-//  let a = [];
-
-//  return a;
-
+ return (a * 0) - a;
 }
 /**
  * joinStringsWithSpaces()
@@ -192,13 +167,7 @@ function flipSign(a) {
  *  //> "left right up down away"
  */
 function joinStringsWithSpaces(a, b, c, d, e) {
-  let a = "";
-  let b = "";
-  let c = "";
-  let d = "";
-  let e = "";
-  return a + " " + b + " " + c + " " + d + " " + e; 
-
+ return a + " " + b + " " + c + " " + d + " " + e;
 }
 
 /**
@@ -216,7 +185,16 @@ function joinStringsWithSpaces(a, b, c, d, e) {
  *  getFirstAndLastCharacter("upwards");
  *  //> "us"
  */
-function getFirstAndLastCharacter() {}
+function getFirstAndLastCharacter(a) {
+  return a[0] + a[a.length - 1];
+}
+ 
+
+
+
+
+
+
 
 // Do not change the code below.
 module.exports = {
