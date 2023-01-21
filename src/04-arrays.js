@@ -164,7 +164,7 @@ function getMiddleElement(array) {
   let middleElement = Math.floor(array.length / 2)
   
   if(array.length % 2 === 0) {
-    return array[middleElement - 1]  + " " + array[middleElement];
+    return array[middleElement - 1] + " " + array[middleElement];
   } 
     return array[middleElement];
   };
