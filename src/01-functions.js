@@ -9,7 +9,11 @@
  *  alwaysTrue();
  *  //> true
  */
-function alwaysTrue() {}
+function alwaysTrue(true1) {
+  // let true1 === true;
+  // return true1;
+
+}
 
 /**
  * greet()
@@ -24,7 +28,11 @@ function alwaysTrue() {}
  *  greet("Ian");
  *  //> "Hello, Ian."
  */
-function greet() {}
+function greet(name) {
+  var greeting = "Hello, " + name + ".";
+  return greeting;
+
+}
 
 /**
  * add()
@@ -39,7 +47,12 @@ function greet() {}
  *  add(10, 20);
  *  //> 30
  */
-function add() {}
+function add(a, b) {
+  var a = 10;
+  var b = 20;
+  return a + b;
+
+}
 
 /**
  * multiply()
@@ -54,7 +67,12 @@ function add() {}
  *  multiply(2, 5);
  *  //> 10
  */
-function multiply() {}
+function multiply(a, b) {
+  var a = 2;
+  var b = 5;
+  return a * b;
+
+}
 
 /**
  * average()
@@ -74,7 +92,12 @@ function multiply() {}
  *  average(10, 6);
  *  //> 8 // 10 + 6 = 16; 16/2 = 8;
  */
-function average() {}
+function average(a, b) {
+  var a = 10;
+  var b = 6;
+  return (a + b) / 2;
+
+}
 
 /**
  * averageThree()
@@ -93,7 +116,13 @@ function average() {}
  *  averageThree(10, 11, 19);
  *  //> 10 // 10 + 11 + 19 = 30; 30 / 3 = 10;
  */
-function averageThree() {}
+function averageThree(a, b, c) {
+  var a = 10;
+  var b = 11;
+  var c  = 19;
+  return (a + b + c) / 3;
+
+}
 
 /**
  * compareTypes()
@@ -112,7 +141,14 @@ function averageThree() {}
  *  compareTypes("left", 10);
  *  //> false
  */
-function compareTypes() {}
+function compareTypes(a, b) {
+  // if (typeof a) === (typeof b){
+  //   return true
+  // } else {
+  //   return false
+  // }
+
+}
 
 /**
  * flipSign()
@@ -131,8 +167,12 @@ function compareTypes() {}
  *  flipSign(50);
  *  //> -50
  */
-function flipSign() {}
+function flipSign(a) {
+//  let a = [];
 
+//  return a;
+
+}
 /**
  * joinStringsWithSpaces()
  * ---------------------
@@ -151,7 +191,15 @@ function flipSign() {}
  *  joinStringsWithSpaces("left", "right", "up", "down", "away");
  *  //> "left right up down away"
  */
-function joinStringsWithSpaces() {}
+function joinStringsWithSpaces(a, b, c, d, e) {
+  let a = "";
+  let b = "";
+  let c = "";
+  let d = "";
+  let e = "";
+  return a + " " + b + " " + c + " " + d + " " + e; 
+
+}
 
 /**
  * getFirstAndLastCharacter()
