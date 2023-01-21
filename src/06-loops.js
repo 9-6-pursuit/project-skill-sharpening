@@ -11,7 +11,13 @@
  *  //> 25
  *  (3 + 4 + 5 + 6 + 7 = 25)
  */
-function rangeSum(min, max) {}
+function rangeSum(min, max) {
+  let result = 0;
+  for (let index = min; index < max + 1; index++) {
+    result += index;
+  }
+  return result;
+}
 
 /**
  * rangeOdd()
@@ -25,12 +31,23 @@ function rangeSum(min, max) {}
  *  rangeOdd(10, 15);
  *  //> [ 15, 13, 11 ]
  */
-function rangeOdd(min, max) {}
+function rangeOdd(min, max) {
+  let array = [];
+
+  for (let index = max; index > min - 1; index--) {
+    if(index % 2 !== 0){
+      array.push(index);
+    }
+  }
+
+  return array;
+}
 
 /**
  * rangeEveryOther()
  * ---------------------
- * Takes in range (inclusive) and returns an array in increasing order of only every other element. Start by including the first number.
+ * Takes in range (inclusive) and returns an array in increasing order of only every other element. 
+ * Start by including the first number.
  * @param {number} min
  * @param {number} max
  * @returns {number[]}
@@ -39,7 +56,20 @@ function rangeOdd(min, max) {}
  *  rangeEveryOther(11, 18);
  *  //> [ 11, 13, 15, 17 ]
  */
-function rangeEveryOther(min, max) {}
+function rangeEveryOther(min, max) {
+  let array = [];
+
+  let trackingIndex = 0;
+
+  for (let index = min; index < max + 1; index++) {
+    if(trackingIndex % 2 === 0){
+      array.push(index);
+    }
+    trackingIndex++;
+  }
+
+  return array;
+}
 
 /**
  * containsWhileLoop()
@@ -61,7 +91,16 @@ function rangeEveryOther(min, max) {}
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let index = 0;
+  while(index < array.length){
+    if(array[index] === target){
+      return true;
+    }
+    index++;
+  }
+  return false;
+}
 
 /**
  * containsForLoop()
@@ -83,7 +122,15 @@ function containsWhileLoop(array, target) {}
  *  containsForLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsForLoop(array, target) {}
+function containsForLoop(array, target) {
+  for (let index = 0; index < array.length; index++) {
+    if(array[index] === target){
+      return true;
+    }
+  }
+
+  return false;
+}
 
 /**
  * targetCount()
@@ -97,12 +144,22 @@ function containsForLoop(array, target) {}
  *  targetCount([ 10, 20, 10, 20, 30 ], 10);
  *  //> 2
  */
-function targetCount(array, target) {}
+function targetCount(array, target) {
+  let occurences = 0;
+  array.map(e=>{
+    if(e === target){
+      occurences += 1;
+    }
+  });
+
+  return occurences;
+}
 
 /**
  * firstIndexFound()
  * ---------------------
- * Returns the first index that the `target` is found at in the array. If the `target` is not found, it should return `-1`.
+ * Returns the first index that the `target` is found at in the array. If the `target` is not found, 
+ * it should return `-1`.
  *
  * NOTE: You may NOT use the `.indexOf()` method.
  *
@@ -117,12 +174,20 @@ function targetCount(array, target) {}
  *  firstIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function firstIndexFound(array, target) {}
+function firstIndexFound(array, target) {
+  for (let index = 0; index < array.length; index++) {
+    if(array[index] === target){
+      return index;
+    }
+  }
+  return -1;
+}
 
 /**
  * lastIndexFound()
  * ---------------------
- * Returns the last index that the `target` is found at in the array. If the `target` is not found, it should return `-1`.
+ * Returns the last index that the `target` is found at in the array. If the `target` is not found, 
+ * it should return `-1`.
  *
  * NOTE: You may NOT use the `.indexOf()` method.
  *
@@ -137,7 +202,19 @@ function firstIndexFound(array, target) {}
  *  lastIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function lastIndexFound(array, target) {}
+function lastIndexFound(array, target) {
+  let lastIndex = -1;
+
+  for (let index = 0; index < array.length; index++) {
+    if(array[index] === target){
+      lastIndex = index;
+    }
+  }
+
+  return lastIndex;
+}
+
+console.log(lastIndexFound([0, 2, 3, 5, 9], 9));
 
 /**
  * timesIndex()
@@ -151,7 +228,9 @@ function lastIndexFound(array, target) {}
  *  //> [ 7 * 0, 10 * 1, 11 * 2 ]
  *  //> [ 0, 10, 22 ]
  */
-function timesIndex(array) {}
+function timesIndex(array) {
+  return array.map((e,i)=>e*i);
+}
 
 /**
  * cumulativeSum()
@@ -165,7 +244,9 @@ function timesIndex(array) {}
  *  //> [ 5, 5 + 2, 5 + 2 + 9 ]
  *  //> [ 5, 7, 16 ]
  */
-function cumulativeSum(array) {}
+function cumulativeSum(array) {
+  return array.map((sum = 0, n => sum += n));
+}
 
 // Do not change anything below this line.
 module.exports = {
