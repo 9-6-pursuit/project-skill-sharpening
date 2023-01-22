@@ -1,7 +1,7 @@
 /**
  * shoutForLoop()
  * ---------------------
- * Takes in an array and returns a new array, adding "!" to each string.
+ * Takes in an array and returns a NEW ARRAY, adding "!" to each string.
  *
  * NOTE: You must use a `for` loop.
  *
@@ -13,10 +13,11 @@
  *  //> [ "A!", "Very!", "Happy!", "Array!" ];
  */
 function shoutForLoop(array) {
+  let newArray = [];
   for (let index = 0; index < array.length; index++) {
-    array[index] = array[index] + "!";
+    newArray.push(array[index] + "!");
   }
-  return array;
+  return newArray;
 }
 
 /**

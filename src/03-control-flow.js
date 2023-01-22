@@ -128,6 +128,7 @@ function aroundTheWorldGreeting(language) {
  *  aroundTheWorldGreetingWithSwitch();
  *  //> "Hello World"
  */
+/*
 function aroundTheWorldGreetingWithSwitch(language) {
   switch(language){
     case 'spanish':
@@ -140,6 +141,27 @@ function aroundTheWorldGreetingWithSwitch(language) {
   }
 
   return 'Hello World';
+}
+*/
+
+function aroundTheWorldGreetingWithSwitch(language) 
+{
+  switch(language) {
+    case "english":
+    return "Hello World";
+    break;
+
+    case "spanish":
+    return "Hola Mundo";
+    break;
+
+    case "german":
+    return "Hallo Welt";
+    break;
+
+    default:
+    return "Hello World";
+  }
 }
 
 /**

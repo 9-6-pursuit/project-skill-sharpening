@@ -22,6 +22,26 @@
   }
 */
 
+const testPerson = {
+  names: {
+    first: "Rachel",
+    middle: "Eleanor",
+    last: "Rojas",
+    specialNames:{first:"Nina", second:"Joey", third:"Alex"}
+  },
+  address: {
+    street: "697 Pine Drive",
+    unit: "2A",
+    city: "Staten Island",
+    state: "NY",
+    zip: "10306"
+  },
+  numbers: [
+    7185550921,
+    7185558611
+  ]
+}
+
 /**
  * getFirstName()
  * ---------------------
@@ -194,19 +214,29 @@ function getFullAddress(person) {
       numbers: [7185550921, 7185558611],
     };
  */
-function getFlatObject(person) {
-  return   {
-    first: person.names.first,
-    middle: person.names.middle,
-    last: person.names.last,
-    street: person.address.street,
-    unit: person.address.unit,
-    city: person.address.city,
-    state: person.address.state,
-    zip: person.address.zip,
-    numbers: person.numbers
-  };
+function getFlatObject(person) 
+{
+  let obj = {};
+
+  for (key in person) 
+  {
+    if (typeof person[key] === "object" && !Array.isArray(person[key]))
+    {
+       for (subKey in person[key])
+       {
+          obj[subKey] = person[key][subKey];
+       }
+    } 
+    else 
+    {
+       obj[key] = person[key];
+    }
+ }
+
+  return obj;
 }
+
+console.log(getFlatObject(testPerson));
 
 // Do not change the code below.
 module.exports = {

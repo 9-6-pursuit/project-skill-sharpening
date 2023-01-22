@@ -31,6 +31,7 @@ function rangeSum(min, max) {
  *  rangeOdd(10, 15);
  *  //> [ 15, 13, 11 ]
  */
+
 function rangeOdd(min, max) {
   let array = [];
 
@@ -213,8 +214,6 @@ function lastIndexFound(array, target) {
 
   return lastIndex;
 }
-
-console.log(lastIndexFound([0, 2, 3, 5, 9], 9));
 
 /**
  * timesIndex()
