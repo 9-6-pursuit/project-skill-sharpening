@@ -201,18 +201,8 @@ function getFullAddress(person) {
     };
  */
 function getFlatObject(person) {
-  // let newPerson = {
-  //   first: ,
-  //   middle: ,
-  //   last: ,
-  //   street: ,
-  //   unit: ,
-  //   city: ,
-  //   state: ,
-  //   zip: ,
-  //   numbers: [],
-  // }
-  // return newPerson
+  
+  //return newPerson
 }
 
 // Do not change the code below.
