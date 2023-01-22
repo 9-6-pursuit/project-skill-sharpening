@@ -111,13 +111,16 @@ function positiveNegativeOrZero(a) {
  *  //> "Hello World"
  */
 function aroundTheWorldGreeting(language) {
+  if (language === undefined) {
+    return "Hello World"
+  } 
   if (language.toLowerCase() === "english") {
     return "Hello World";
   } else if (language.toLowerCase() === "spanish") {
     return "Hola Mundo";
   } else if (language.toLowerCase() === "german") {
     return "Hallo Welt";
-  } else {return "Hello World"}
+  } 
 }
 
 /**
@@ -234,7 +237,8 @@ function animalCounts(animal, numberOfAnimals) {
 function evenOrOdd(a) {
   if (a % 2 === 0) {
     return "Even";
-  } else {
+  } else if (a % 2 === 1 || a % 2 === -1){
+    console.log(a)
     return "Odd"
   }
 }
