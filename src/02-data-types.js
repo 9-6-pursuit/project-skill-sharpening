@@ -166,10 +166,10 @@ function isTruthy(val) {
     return false;
     }
 
+}
+
 //  if (val) return true
 //  else return false;
-
-}
 
 /**
  * isFalsy()

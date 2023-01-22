@@ -132,7 +132,10 @@ function addKeyValuePairToObject(object, key, val) {}
  *  deleteKeyFromObject({ left: true, right: false }, "left");
  *  //> { right: false }
  */
-function deleteKeyFromObject(object, key) {}
+function deleteKeyFromObject(object, key) {
+  object[key] = val
+  return object;
+}
 
 // Do not change any code below this line.
 module.exports = {
