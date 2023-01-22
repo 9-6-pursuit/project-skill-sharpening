@@ -11,7 +11,13 @@
  *  //> 25
  *  (3 + 4 + 5 + 6 + 7 = 25)
  */
-function rangeSum(min, max) {}
+function rangeSum(min, max) {
+  let sum = 0;
+  for (let i = min; i <= max; i++) {
+    sum += i;
+  }
+  return sum;
+}
 
 /**
  * rangeOdd()
@@ -25,7 +31,15 @@ function rangeSum(min, max) {}
  *  rangeOdd(10, 15);
  *  //> [ 15, 13, 11 ]
  */
-function rangeOdd(min, max) {}
+function rangeOdd(min, max) {
+  const array = [];
+  for (let i = max; i >= min; i--) {
+    if (i % 2 !== 0) {
+      array.push(i);
+    }
+  }
+  return array;
+}
 
 /**
  * rangeEveryOther()
@@ -39,7 +53,13 @@ function rangeOdd(min, max) {}
  *  rangeEveryOther(11, 18);
  *  //> [ 11, 13, 15, 17 ]
  */
-function rangeEveryOther(min, max) {}
+function rangeEveryOther(min, max) {
+  const array = [];
+  for (let i = min; i <= max; i += 2) {
+    array.push(i);
+  }
+  return array;
+}
 
 /**
  * containsWhileLoop()
@@ -61,7 +81,16 @@ function rangeEveryOther(min, max) {}
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let i = 0;
+  while (i < array.length) {
+    if (array[i] === target) {
+      return true;
+    }
+    i++;
+  }
+  return false;
+}
 
 /**
  * containsForLoop()
@@ -83,7 +112,14 @@ function containsWhileLoop(array, target) {}
  *  containsForLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsForLoop(array, target) {}
+function containsForLoop(array, target) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return true;
+    }
+  }
+  return false;
+}
 
 /**
  * targetCount()
@@ -97,14 +133,22 @@ function containsForLoop(array, target) {}
  *  targetCount([ 10, 20, 10, 20, 30 ], 10);
  *  //> 2
  */
-function targetCount(array, target) {}
+function targetCount(array, target) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      count++;
+    }
+  }
+  return count;
+}
 
 /**
  * firstIndexFound()
  * ---------------------
- * Returns the first index that the `target` is found at in the array. If the `target` is not found, it should return `-1`.
+ * Returns the first i that the `target` is found at in the array. If the `target` is not found, it should return `-1`.
  *
- * NOTE: You may NOT use the `.indexOf()` method.
+ * NOTE: You may NOT use the `.iOf()` method.
  *
  * @param {*[]} array
  * @param {number|string} target
@@ -117,14 +161,21 @@ function targetCount(array, target) {}
  *  firstIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function firstIndexFound(array, target) {}
+function firstIndexFound(array, target) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return i;
+    }
+  }
+  return -1;
+}
 
 /**
  * lastIndexFound()
  * ---------------------
- * Returns the last index that the `target` is found at in the array. If the `target` is not found, it should return `-1`.
+ * Returns the last i that the `target` is found at in the array. If the `target` is not found, it should return `-1`.
  *
- * NOTE: You may NOT use the `.indexOf()` method.
+ * NOTE: You may NOT use the `.iOf()` method.
  *
  * @param {*[]} array
  * @param {number|string} target
@@ -137,12 +188,20 @@ function firstIndexFound(array, target) {}
  *  lastIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function lastIndexFound(array, target) {}
+function lastIndexFound(array, target) {
+  let lastFound = -1;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      lastFound = i;
+    }
+  }
+  return lastFound;
+}
 
 /**
  * timesIndex()
  * ---------------------
- * Returns a new array where each element has been multiplied by its index.
+ * Returns a new array where each element has been multiplied by its i.
  * @param {number[]} elements
  * @returns {number[]}
  *
@@ -151,7 +210,13 @@ function lastIndexFound(array, target) {}
  *  //> [ 7 * 0, 10 * 1, 11 * 2 ]
  *  //> [ 0, 10, 22 ]
  */
-function timesIndex(array) {}
+function timesIndex(array) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray[i] = array[i] * i;
+  }
+  return newArray;
+}
 
 /**
  * cumulativeSum()
@@ -165,7 +230,15 @@ function timesIndex(array) {}
  *  //> [ 5, 5 + 2, 5 + 2 + 9 ]
  *  //> [ 5, 7, 16 ]
  */
-function cumulativeSum(array) {}
+function cumulativeSum(array) {
+  const newArray = [];
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+    newArray[i] = sum;
+  }
+  return newArray;
+}
 
 // Do not change anything below this line.
 module.exports = {
