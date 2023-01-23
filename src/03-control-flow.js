@@ -14,7 +14,13 @@
  *  isEqual(10, "10");
  *  //> false
  */
-function isEqual(a, b) {}
+function isEqual(a, b) {
+  if(a === b) {
+    return true
+  } else {
+    return false
+  }
+}
 
 /**
  * findLarger()
@@ -28,7 +34,15 @@ function isEqual(a, b) {}
  *  findLarger(19, 7);
  *  //> 19
  */
-function findLarger(a, b) {}
+function findLarger(a, b) {
+  if (a > b) {
+    return a
+  } else {
+    return b
+  }
+  // -1 8
+  // 5 5
+}
 
 /**
  * findLargerOrTie()
@@ -45,7 +59,15 @@ function findLarger(a, b) {}
  *  findLargerOrTie(0, 0);
  *  //> "tie"
  */
-function findLargerOrTie(a, b) {}
+function findLargerOrTie(a, b) {
+  if (a === b) {
+    return "tie"
+  } else {
+    return Math.max(a, b)
+  }
+  // -1 5 = 5 
+  // -1 -1 = "tie"
+}
 
 /**
  * positiveNegativeOrZero()
@@ -65,12 +87,24 @@ function findLargerOrTie(a, b) {}
  *  positiveNegativeOrZero(1);
  *  //> "Positive"
  */
-function positiveNegativeOrZero(a) {}
+function positiveNegativeOrZero(a) {
+  if(Math.sign(a) > 0) {
+    return "Positive"
+  } else if (Math.sign(a) < 0) {
+    return "Negative"
+  } else {
+    return "Zero"
+  }
+  // 1 "Positive"
+  // -1 "Negative"
+  // 0 "Zero"
+}
 
 /**
  * aroundTheWorldGreeting()
  * ---------------------
- * Takes in a `language` (e.g "english", "spanish", or "german") and returns "Hello World" in that language. Must work for at least "english", "spanish", and "german". It should default to English if no argument is passed in.
+ * Takes in a `language` (e.g "english", "spanish", or "german") and returns "Hello World" in that language. 
+ * Must work for at least "english", "spanish", and "german". It should default to English if no argument is passed in.
  *
  * TRANSLATIONS: english -> "Hello World"
  *               spanish -> "Hola Mundo"
@@ -86,12 +120,26 @@ function positiveNegativeOrZero(a) {}
  *  aroundTheWorldGreeting();
  *  //> "Hello World"
  */
-function aroundTheWorldGreeting(language) {}
+function aroundTheWorldGreeting(language) {
+  if(language === "english"){
+    return "Hello World"
+  } else if(language === "spanish") {
+    return "Hola Mundo"
+  } else if(language === "german") {
+    return "Hallo Welt"
+  } else {
+    return "Hello World"
+  }
+
+  // language "Hello World"
+  // undefined 
+}
 
 /**
  * aroundTheWorldGreetingWithSwitch()
  * ---------------------
- * Takes in a language (e.g "english", "spanish", "german") and returns "Hello World" in that language. Must work for at least "english", "spanish", and "german". It should default to English if no argument is passed in.
+ * Takes in a language (e.g "english", "spanish", "german") and returns "Hello World" in that language. 
+ * Must work for at least "english", "spanish", and "german". It should default to English if no argument is passed in.
  *
  * TRANSLATIONS: English -> "Hello World"
  *               Spanish -> "Hola Mundo"
@@ -109,12 +157,27 @@ function aroundTheWorldGreeting(language) {}
  *  aroundTheWorldGreetingWithSwitch();
  *  //> "Hello World"
  */
-function aroundTheWorldGreetingWithSwitch(language) {}
+function aroundTheWorldGreetingWithSwitch(language) {
+   switch (language) {
+    case "english":
+      return "Hello World";
+      break;
+    case "spanish":
+      return "Hola Mundo";
+      break;
+    case "german":
+      return "Hallo Welt";
+      break;
+    default:
+      return "Hello World";
+   }
+}
 
 /**
  * calculateLetterGrade()
  * ---------------------
- * Takes in a number and returns the letter grade corresponding to that number. Letter grades consist of "A", "B", "C", "D", or "F".
+ * Takes in a number and returns the letter grade corresponding to that number. 
+ * Letter grades consist of "A", "B", "C", "D", or "F".
  *
  * SCORING: 90 and above is an A
  *          80 and above is a B
@@ -128,7 +191,21 @@ function aroundTheWorldGreetingWithSwitch(language) {}
  *  calculateLetterGrade(99);
  *  //> "A"
  */
-function calculateLetterGrade(grade) {}
+function calculateLetterGrade(grade) {
+  if (grade < 60) {
+    return "F";
+  } else if (grade < 70) {
+    return "D";
+  } else if (grade < 80) {
+    return "C";
+  } else if (grade < 90) {
+    return "B"
+  } else if (grade < 100) {
+    return "A"
+  }
+
+  //90 = "A"
+}
 
 /**
  * animalCounts()
@@ -146,7 +223,15 @@ function calculateLetterGrade(grade) {}
  *  animalCounts("pig", 1);
  *  //> "1 pig"
  */
-function animalCounts(animal, numberOfAnimals) {}
+function animalCounts(animal, numberOfAnimals) {
+  if(numberOfAnimals > 1) {
+    return `${numberOfAnimals} ${animal}s`;
+  } else {
+    return `${numberOfAnimals} ${animal}`;
+  }
+  // cat 1 = "1 cat"
+  // cat 3 = "3 cats"
+}
 
 /**
  * evenOrOdd()
@@ -163,7 +248,15 @@ function animalCounts(animal, numberOfAnimals) {}
  *  evenOrOdd(48);
  *  //> "Even"
  */
-function evenOrOdd(a) {}
+function evenOrOdd(a) {
+   if(a % 2 === 0) {
+    return "Even";
+   } else {
+    return "Odd";
+   }
+  // 0
+  // -1
+}
 
 /**
  * evenOrOddWithTernary()
@@ -179,7 +272,9 @@ function evenOrOdd(a) {}
  *  evenOrOddWithTernary(8);
  *  //> "Even"
  */
-function evenOrOddWithTernary(a) {}
+function evenOrOddWithTernary(a) {
+  return a % 2 === 0 ?  "Even" : "Odd"
+}
 
 // Do not change any code below this line.
 module.exports = {
