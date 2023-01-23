@@ -9,7 +9,9 @@
  *  createEmptyObject()
  *  //> {}
  */
-function createEmptyObject() {}
+function createEmptyObject() {
+  return {}
+}
 
 /**
  * createObjectWithValue()
@@ -22,7 +24,11 @@ function createEmptyObject() {}
  *  createObjectWithValue(19);
  *  //> { whateverKey: 19 }
  */
-function createObjectWithValue(val) {}
+function createObjectWithValue(val) {
+  let obj = {}
+  val.obj = val
+  return obj
+}
 
 /**
  * createObjectWithKey()
@@ -62,7 +68,9 @@ function createObjectWithKeyValuePair(key, val) {}
  *  getNameFromObject({ name: "Jay" });
  *  //> "Jay"
  */
-function getNameFromObject(object) {}
+function getNameFromObject(object) {
+  return object
+}
 
 /**
  * getAgeFromObject()
