@@ -19,8 +19,26 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
-
+function applyDiscount(priceInCents, age, hasMembership) {
+  
+  if (age <= 10 && hasMembership === false ){
+    priceInCents -=(priceInCents * (0.1))
+  }  
+  if (age >= 65 && hasMembership === false ){
+    priceInCents -=(priceInCents * (0.1))
+  }
+  if (age > 10 && age < 65 && hasMembership === true){
+     priceInCents -=(priceInCents * (0.2))
+ }
+  if (age >= 65 && hasMembership === true){
+    priceInCents -=(priceInCents * (0.3))
+  }
+  if (age <= 10 && hasMembership === true){
+    priceInCents -=(priceInCents*(0.3))
+  } 
+  return priceInCents
+  }
+  
 /**
  * getCartTotal()
  * ---------------------
@@ -40,7 +58,9 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+  let cartTotal = ""
+}
 
 /**
  * compareLocations()
