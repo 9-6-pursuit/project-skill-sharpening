@@ -19,7 +19,26 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+    if(age <= 10 || age >= 65) {
+       return priceInCents * .90
+    }
+    if(hasMembership) {
+      return priceInCents * .80
+    }
+    if(age <= 10 && hasMembership === true) {
+      return priceInCents * .70
+    }
+    else if(age >= 65 && hasMembership === true) {
+      return priceInCents * .70
+    }
+    if(!hasMembership && age > 10) {
+      return priceInCents
+    }
+    if(!hasMembership && age < 65) {
+      return priceInCents
+    }
+}
 
 /**
  * getCartTotal()
@@ -40,7 +59,9 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+
+}
 
 /**
  * compareLocations()
@@ -80,7 +101,17 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  if(address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return "Same building."
+  } else if(address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return "Same city."
+  } else if(address1.state !== address2.state && address1.city === address2.city && address1.street === address2.street && address1.zip === address2.zip) {
+    return "Same state."
+  } else {
+    return "Addresses are not near each other."
+  }
+}
 
 /**
  * gradeAssignments()
@@ -127,7 +158,21 @@ function compareLocations(address1, address2) {}
     //>   },
     //> ];
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  if(assignments[0].kind) {
+     return "PASSED"
+  } else if(assignments[1].kind) {
+    return "PASSED"
+  } else if(assignments[2].kind) {
+    return "SCORE: " + assignments.score.received
+  }
+  if(assignments.score.received === assignments.score.max) {
+    return "PASSED"
+  } else if(assignments.score.received !== assignments.score.max) {
+    return "FAILED"
+  }
+  
+}
 
 /**
  * createLineOrder()
