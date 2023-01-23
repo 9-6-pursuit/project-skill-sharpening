@@ -19,7 +19,22 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  let discount = 1;
+  if(discount -= age >= 65 || age <= 10) {
+    priceInCents *= 0.1;
+  } else {
+    priceInCents =  0;
+  }
+
+  if(discount -= hasMembership) {
+    priceInCents *= 0.2;
+  } else {
+    priceInCents =  0;
+  }
+
+  return priceInCents * discount;
+}
 
 /**
  * getCartTotal()
@@ -40,7 +55,13 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+  let result = 0;
+  for (let i of products) {
+    result += i.priceInCents * i.quantity;
+  }
+  return `$${(result/100).toFixed(2)}`;
+}
 
 /**
  * compareLocations()
@@ -80,7 +101,21 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  let result = "Addresses are not near each other.";
+  if(address1.state === address2.state){//state
+    result = "Same state.";
+
+    if(address1.city === address2.city){//city
+      result = "Same city.";
+
+      if(address1.street === address2.street){//street
+        result = "Same building.";
+      }
+    }
+  }
+  return result;
+}
 
 /**
  * gradeAssignments()
@@ -127,7 +162,14 @@ function compareLocations(address1, address2) {}
     //>   },
     //> ];
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  let result = [];
+  for(let i of assignments) {
+
+  }
+  return result;
+
+}
 
 /**
  * createLineOrder()
@@ -152,7 +194,20 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
+function createLineOrder(people) {
+  let memberShip = [];
+  let notMemberShip = [];
+
+  for (let i of people) {
+    if(i.hasMembership) {
+      memberShip.push(i.name);
+    } else {
+      notMemberShip.push(i.name);
+    }
+  }
+
+  return memberShip.concat(notMemberShip);
+}
 
 module.exports = {
   applyDiscount,
