@@ -9,7 +9,10 @@
  *  createEmptyObject()
  *  //> {}
  */
-function createEmptyObject() {}
+function createEmptyObject() {
+  let object = {}
+  return object
+}
 
 /**
  * createObjectWithValue()
@@ -22,7 +25,10 @@ function createEmptyObject() {}
  *  createObjectWithValue(19);
  *  //> { whateverKey: 19 }
  */
-function createObjectWithValue(val) {}
+function createObjectWithValue(val) {
+  let object = {key : val}
+  return object
+}
 
 /**
  * createObjectWithKey()
@@ -35,7 +41,10 @@ function createObjectWithValue(val) {}
  *  createObjectWithKey("left");
  *  //> { left: false }
  */
-function createObjectWithKey(key) {}
+function createObjectWithKey(key) {
+  let object = {}
+  return object.key
+}
 
 /**
  * createObjectWithKeyValuePair()
