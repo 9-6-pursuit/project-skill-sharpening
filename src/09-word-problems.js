@@ -19,7 +19,19 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  let total = priceInCents;
+  if (hasMembership) {
+    if (age <= 10 || age >= 65) {
+      total = priceInCents - (priceInCents * .3);
+    } else {
+      total = priceInCents - (priceInCents * .2);
+    }
+  } else if (age <= 10 || age >= 65) {
+    total = priceInCents - (priceInCents * .1);
+  }
+  return total; 
+}
 
 /**
  * getCartTotal()
@@ -40,7 +52,13 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+ let total = 0;
+ for (let i = 0; i < products.length; i++) {
+  total += (products[i].priceInCents * products[i].quantity)/100;
+ }
+ return `$${total.toFixed(2)}`
+}
 
 /**
  * compareLocations()
@@ -80,7 +98,19 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  for (key in address2) {
+    if (address1.street === address2.street && address1.city === address2.city && address1.state == address2.state && address1.zip === address2.zip) {
+      return 'Same building.';
+    } else if (address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+      return 'Same city.';
+    } else if (address1.state === address2.state) {
+      return 'Same state.'
+    } else {
+    return 'Addresses are not near each other.'
+    }
+  }
+}
 
 /**
  * gradeAssignments()
@@ -92,7 +122,7 @@ function compareLocations(address1, address2) {}
  * - If the assignment has a `kind` of `"PASS-FAIL"`, set the `status` value to `"PASSED"` if the `score.received` equals the `score.max`. Otherwise, set that `status` to be `"FAILED"`.
  * - If the assignment has a `kind` of `"PERCENTAGE"`, set the `status` value to be `"PASSED: <percentage>"` if the student scored at least 80.0%. The `<percentage>` should be set to one decimal place. If the student scored less than 80.0%, set the status to `"FAILED: <percentage>"`.
  * - If the assignment has any other `kind` than the two above, set the `status` value to equal `"SCORE: <received>/<max>"`, where `<received>` is the `score.received` value and `<max>` is the `score.max` value.
- *
+ *5
  * Then, return the overall array with all modified assignments.
  *
  * @param {Object[]} assignments - An array of assignment objects.
@@ -127,7 +157,28 @@ function compareLocations(address1, address2) {}
     //>   },
     //> ];
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  for (let grades of assignments) {
+    if (grades.kind.includes('PASS-FAIL')) {
+      if (grades.score.received === grades.score.max) {
+        grades.status = 'PASSED';
+      } else {
+        grades.status = 'FAILED';
+      }
+    } else if (grades.kind.includes('PERCENTAGE')) {
+      if (grades.score.received >= grades.score.max * 0.8) {
+        let score = (grades.score.received * 10 / grades.score.max * 10).toFixed(1);
+        grades.status = `PASSED: ${score}%`;
+      } else if (grades.score.received < grades.score.max * 0.8 ) {
+        score = (grades.score.received * 10 / grades.score.max * 10).toFixed(1);
+        grades.status = `FAILED: ${score}%`
+      }
+    } else {
+      grades.status = `SCORE: ${grades.score.received}/${grades.score.max}`;
+    }
+  }
+  return assignments
+  }
 
 /**
  * createLineOrder()
@@ -152,7 +203,19 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
+function createLineOrder(people) {
+  let members = [];
+  let nonMembers = [];
+  for (let person of people) {
+    if (person.hasMembership) {
+      members.push(person.name);
+    } else {
+      nonMembers.push(person.name);
+    }
+  }
+  let newLineOrder = members.concat(nonMembers);
+  return newLineOrder;
+}
 
 module.exports = {
   applyDiscount,
