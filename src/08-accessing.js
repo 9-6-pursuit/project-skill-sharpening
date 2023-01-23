@@ -195,13 +195,21 @@ function getFullAddress(person) {
     };
  */
 function getFlatObject(person) {
-   return {
-    ...person.names,
-    ...person.address,
-    numbers:person.numbers
-   }
-   
-  
+  let newObject = {};
+
+  newObject.first = person.names.first;
+  newObject.middle = person.names.middle;
+  newObject.last = person.names.last;
+
+  newObject.street = person.address.street;
+  newObject.unit = person.address.unit;
+  newObject.city = person.address.city;
+  newObject.state = person.address.state;
+  newObject.zip = person.address.zip;
+
+  newObject.numbers = person.numbers;
+
+  return newObject;
 }
 
 // Do not change the code below.
