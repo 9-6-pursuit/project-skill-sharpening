@@ -12,7 +12,12 @@
  *  shoutForLoop([ "A", "Very", "Happy", "Array" ]);
  *  //> [ "A!", "Very!", "Happy!", "Array!" ];
  */
-function shoutForLoop(array) {}
+function shoutForLoop(array) {
+  for (let index = 0; index < array.length; index++) {
+    array[index] += "!";
+  }
+  return array;
+}
 
 /**
  * shoutWhileLoop()
@@ -28,7 +33,14 @@ function shoutForLoop(array) {}
  *  shoutWhileLoop([ "A", "Very", "Happy", "Array" ]);
  *  //> [ "A!", "Very!", "Happy!", "Array!" ];
  */
-function shoutWhileLoop(array) {}
+function shoutWhileLoop(array) {
+  let i = 0
+  while (i < array.length) {
+    array[i] += "!";
+    i += 1
+  }
+  return array;
+}
 
 /**
  * shoutForOfLoop()
@@ -57,7 +69,14 @@ function shoutForOfLoop(array) {}
  *  sumArray([ 10, 0, 10, 11 ]);
  *  //> 31
  */
-function sumArray(array) {}
+function sumArray(array) {
+  let sum = 0
+  for (let item of array) {
+    sum += item
+  }
+  return sum
+}
+
 
 /**
  * oddArray()
@@ -70,7 +89,15 @@ function sumArray(array) {}
  *  oddArray([ 11, 15, 20, 22, 37 ]);
  *  //> [ 11, 15, 37 ]
  */
-function oddArray(array) {}
+function oddArray(array) {
+  let list = []
+  for (let item of array) {
+    if (item % 2 == 1) {
+      list.push(item)
+    }
+  }
+  return list
+}
 
 /**
  * evenArray()
@@ -83,7 +110,15 @@ function oddArray(array) {}
  *  evenArray([ 11, 15, 20, 22, 37 ]);
  *  //> [ 20, 22 ]
  */
-function evenArray(array) {}
+function evenArray(array) {
+  let list = []
+  for (let item of array) {
+    if (item % 2 == 0) {
+      list.push(item)
+    }
+  }
+  return list
+}
 
 /**
  * findSmallest()
@@ -96,7 +131,15 @@ function evenArray(array) {}
  *  findSmallest([ 0, 11, -2, 5 ]);
  *  //> -2
  */
-function findSmallest(array) {}
+function findSmallest(array) {
+  let min = 999999
+  for (let item of array) {
+    if (item < min) {
+      min = item
+    }
+  }
+  return min
+}
 
 /**
  * findLargest()
@@ -109,7 +152,15 @@ function findSmallest(array) {}
  *  findLargest([ 0, 11, -2, 5 ]);
  *  //> 11
  */
-function findLargest(array) {}
+function findLargest(array) {
+  let max = 0
+  for (let item of array) {
+    if (item > max) {
+      max = item
+    }
+  }
+  return max
+}
 
 /**
  * findEqual()
