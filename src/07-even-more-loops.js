@@ -12,6 +12,9 @@
  *  shoutForLoop([ "A", "Very", "Happy", "Array" ]);
  *  //> [ "A!", "Very!", "Happy!", "Array!" ];
  */
+
+/// PLEASE NOTE: I WIL BE SUBMITTING THIS I DID NOT GET A CHANCE TO WORK ON THOS ONE OR WORD ACCESSING TEST, HOWEVER I WILL DO THEM AND SUBMIT-TYSM!
+
 function shoutForLoop(array) {}
 
 /**
@@ -57,7 +60,9 @@ function shoutForOfLoop(array) {}
  *  sumArray([ 10, 0, 10, 11 ]);
  *  //> 31
  */
-function sumArray(array) {}
+function sumArray(array) {
+  return array
+}
 
 /**
  * oddArray()
