@@ -32,7 +32,9 @@
  *  getFirstName(person);
  *  //> "Rachel"
  */
-function getFirstName(person) {}
+function getFirstName(person) {
+  return person.names.first
+}
 
 /**
  * getLastName()
@@ -45,7 +47,9 @@ function getFirstName(person) {}
  *  getLastName(person);
  *  //> "Rojas"
  */
-function getLastName(person) {}
+function getLastName(person) {
+  return person.names.last
+}
 
 /**
  * getAddressStreet()
@@ -58,7 +62,9 @@ function getLastName(person) {}
  *  getAddressStreet(person);
  *  //> "697 Pine Drive"
  */
-function getAddressStreet(person) {}
+function getAddressStreet(person) { 
+  return person.address.street
+}
 
 /**
  * getCountOfPhoneNumbers()
@@ -71,7 +77,9 @@ function getAddressStreet(person) {}
  *  getCountOfPhoneNumbers(person);
  *  //> 2
  */
-function getCountOfPhoneNumbers(person) {}
+function getCountOfPhoneNumbers(person) {
+  return person.numbers.length
+}
 
 /**
  * getFirstPhoneNumber()
@@ -87,7 +95,9 @@ function getCountOfPhoneNumbers(person) {}
  *  getFirstPhoneNumber(person);
  *  //> 7185550921
  */
-function getFirstPhoneNumber(person) {}
+function getFirstPhoneNumber(person) {
+  return person.numbers[0]
+}
 
 /**
  * getLastPhoneNumber()
@@ -103,7 +113,9 @@ function getFirstPhoneNumber(person) {}
  *  getLastPhoneNumber(person);
  *  //> 7185558611
  */
-function getLastPhoneNumber(person) {}
+function getLastPhoneNumber(person) {
+  return person.numbers[person.numbers.length-1]
+}
 
 /**
  * getFullName()
@@ -116,7 +128,12 @@ function getLastPhoneNumber(person) {}
  *  getFullName(person);
  *  //> "Rachel Eleanor Rojas"
  */
-function getFullName(person) {}
+function getFullName(person) {
+  let first = person.names.first
+  let middle = person.names.middle
+  let last = person.names.last
+  return `${first} ${middle} ${last}`
+}
 
 /**
  * getCityAndState()
@@ -132,7 +149,11 @@ function getFullName(person) {}
  *  getCityAndState(person);
  *  //> "Staten Island, NY"
  */
-function getCityAndState(person) {}
+function getCityAndState(person) {
+    let city = person.address.city
+    let state = person.address.state
+  return `${city}, ${state}`
+}
 
 /**
  * getFullAddress()
@@ -148,7 +169,14 @@ function getCityAndState(person) {}
  *  getFullAddress(person);
  *  //> "697 Pine Drive 2A, Staten Island, NY, 10306"
  */
-function getFullAddress(person) {}
+function getFullAddress(person) {
+    let street = person.address.street
+    let unit = person.address.unit
+    let city = person.address.city
+    let state = person.address.state
+    let zip = person.address.zip
+  return `${street} ${unit}, ${city}, ${state}, ${zip}`
+}
 
 /**
  * getFlatObject()
@@ -171,7 +199,52 @@ function getFullAddress(person) {}
       numbers: [7185550921, 7185558611],
     };
  */
-function getFlatObject(person) {}
+function getFlatObject(person) {
+  let flat = {}
+    
+    flat.first = person.names.first
+    flat.middle = person.names.middle
+    flat.last = person.names.last
+    flat.street = person.address.street
+    flat.unit = person.address.unit
+    flat.city = person.address.city
+    flat.state = person.address.state
+    flat.zip = person.address.zip 
+    flat.numbers = person.numbers
+    // console.log(person.numbers)
+    // console.log()
+  return flat
+}
+  // console.log(flat)
+// //                RETURNS AS undefined
+
+
+//   let flat = {};
+ 
+//     // loop through the object "person"
+//     for (const i in person) {
+ 
+//         // We check the type of the i using
+//         // typeof() function and recursively
+//         // call the function again
+//         if ((typeof person[i]) === 'object') {
+//             const temp = getFlatObject(person[i]);
+//             for (const j in temp) {
+//               person[i] ===(person[i])
+ 
+//                 // Store temp in flat
+//                 flat[i] = temp[j];
+//             }
+//         }
+ 
+//         // Else store person[i] in flat directly
+//         else {
+//             flat[i] = person[i];
+//         }
+//     }
+//     return flat;
+
+
 
 // Do not change the code below.
 module.exports = {
