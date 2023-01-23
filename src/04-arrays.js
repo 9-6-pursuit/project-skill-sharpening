@@ -10,7 +10,10 @@
  *  createEmptyArray();
  *  //> []
  */
-function createEmptyArray() {}
+function createEmptyArray() {
+  let array = [];
+  return array;
+}
 
 /**
  * createArrayWithTwoElements()
@@ -24,7 +27,11 @@ function createEmptyArray() {}
  *  createArrayWithTwoElements(true, false);
  *  //> [ true, false ]
  */
-function createArrayWithTwoElements(a, b) {}
+function createArrayWithTwoElements(a, b) {
+  return [a, b];
+  // A 1 ["A", "B"]
+  // B 2 [1, 2]
+}
 
 /**
  * getArrayLength()
@@ -37,7 +44,11 @@ function createArrayWithTwoElements(a, b) {}
  *  getArrayLength([ 10, 20, 30 ]);
  *  //> 3
  */
-function getArrayLength(array) {}
+function getArrayLength(array) {
+  return array.length
+  // [1, 2, 3 ] = 3
+  // [] = 0
+}
 
 /**
  * getFirstElementOfArray()
@@ -51,7 +62,12 @@ function getArrayLength(array) {}
  *  getFirstElementOfArray([ 10, 20, 30 ]);
  *  //> 10
  */
-function getFirstElementOfArray(array) {}
+function getFirstElementOfArray(array) {
+  return array[0];
+  // [ 'first', 'last' ] = "first"
+  // [ 10, 9, 8 ] = 10
+  // = "last"
+}
 
 /**
  * getLastElementOfArray()
@@ -65,7 +81,9 @@ function getFirstElementOfArray(array) {}
  *  getLastElementOfArray([ null, undefined ]);
  *  //> undefined
  */
-function getLastElementOfArray(array) {}
+function getLastElementOfArray(array) {
+  return array[array.length -1];
+}
 
 /**
  * addElementToEndOfArray()
@@ -79,7 +97,13 @@ function getLastElementOfArray(array) {}
  *  addElementToEndOfArray([ 10 ], 9);
  *  //> [ 10, 9 ]
  */
-function addElementToEndOfArray(array, element) {}
+function addElementToEndOfArray(array, element) {
+  array.push("A");
+  array.push(element);
+  return array;
+  // [ 10 ] A
+  // [ 1, 2, 3 ] 4
+}
 
 /**
  * removeElementFromEndOfArray()
@@ -92,7 +116,11 @@ function addElementToEndOfArray(array, element) {}
  *  removeElementFromEndOfArray([ 10, 9, 8 ]);
  *  //> 8
  */
-function removeElementFromEndOfArray(array) {}
+function removeElementFromEndOfArray(array) {
+  return array.pop();
+  // [ 'A' ]
+  // [1, 2, 3 ]
+}
 
 /**
  * addElementToFrontOfArray()
@@ -106,7 +134,12 @@ function removeElementFromEndOfArray(array) {}
  *  addElementToFrontOfArray([ 10 ], 9);
  *  //> [ 9, 10 ]
  */
-function addElementToFrontOfArray(array, element) {}
+function addElementToFrontOfArray(array, element) {
+  array.unshift(element);
+  return array;
+  // [ 10 ] A
+  // [ 1, 2, 3 ] 4
+}
 
 /**
  * removeElementFromFrontOfArray()
@@ -119,7 +152,9 @@ function addElementToFrontOfArray(array, element) {}
  *  removeElementFromFrontOfArray([ 10, 9, 8 ]);
  *  //> 10
  */
-function removeElementFromFrontOfArray(array) {}
+function removeElementFromFrontOfArray(array) {
+  return array.shift();
+}
 
 /**
  * getMiddleElement()
@@ -135,7 +170,12 @@ function removeElementFromFrontOfArray(array) {}
  *  getMiddleElement([ 10, null, "30" ]);
  *  //> null
  */
-function getMiddleElement(array) {}
+function getMiddleElement(array) {
+  return array[Math.floor(array.length/2)];
+
+  // [ 'first', 'middle', 'last' ]
+  // [ 10, 9, 8 ]
+}
 
 // Do not change any code below this line.
 module.exports = {
