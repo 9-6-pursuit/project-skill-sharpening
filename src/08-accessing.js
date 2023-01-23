@@ -32,7 +32,8 @@
  *  getFirstName(person);
  *  //> "Rachel"
  */
-function getFirstName(person) {}
+function getFirstName(person) {
+}
 
 /**
  * getLastName()
@@ -58,7 +59,9 @@ function getLastName(person) {}
  *  getAddressStreet(person);
  *  //> "697 Pine Drive"
  */
-function getAddressStreet(person) {}
+function getAddressStreet(person) {
+  
+}
 
 /**
  * getCountOfPhoneNumbers()
@@ -171,7 +174,13 @@ function getFullAddress(person) {}
       numbers: [7185550921, 7185558611],
     };
  */
-function getFlatObject(person) {}
+function getFlatObject(person) {
+  // let newObject = {}
+  // newObject.first = person.names.first
+  // newObject.middle = person.names.middle
+  // newObject.last = person.names.last
+  // return newObject
+}
 
 // Do not change the code below.
 module.exports = {

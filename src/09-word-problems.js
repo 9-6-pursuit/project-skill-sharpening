@@ -1,9 +1,12 @@
 /**
  * applyDiscount()
  * ---------------------
- * A local movie theater has a few different ticket discounts. If the attendee is 10 years old or younger, or 65 years old or older, they receive a 10% discount. If the attendee is viewing the movie with a member, they receive a 20% discount. If both situations apply, they receive a 30% discount.
+ * A local movie theater has a few different ticket discounts. If the attendee is 10 years old or younger, or 
+ * 65 years old or older, they receive a 10% discount. If the attendee is viewing the movie with a member, 
+ * they receive a 20% discount. If both situations apply, they receive a 30% discount.
  *
- * Write an algorithm that will determine the price of a ticket based on the `priceInCents` of the ticket, the `age` of the attendee, and the membership status (i.e. `hasMembership`).
+ * Write an algorithm that will determine the price of a ticket based on the `priceInCents` of the ticket, 
+ * the `age` of the attendee, and the membership status (i.e. `hasMembership`).
  * @param {number} priceInCents - The price of the ticket, in cents.
  * @param {number} age - The age of the attendee.
  * @param {boolean} hasMembership - Whether or not the person has access to a membership.
@@ -19,14 +22,26 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  if (age <=10 || age >=65){
+    return priceInCents * .90
+  } else if (hasMembership === true){
+    return priceInCents * .80 
+  } else if (age <=10 || age >=65 && hasMembership === true ){
+    return priceInCents * .70
+  } else {
+    return priceInCents
+  }
+}
 
 /**
  * getCartTotal()
  * ---------------------
- * An online store allows for customers to add products to their cart. Customers can add multiples of each product to the cart.
+ * An online store allows for customers to add products to their cart. 
+ * Customers can add multiples of each product to the cart.
  * 
- * Write an algorithm that will determine the total amount of all items in the cart. Make sure to multiply the `priceInCents` times the `quantity` to get the full cost of each product.
+ * Write an algorithm that will determine the total amount of all items in the cart. 
+ * Make sure to multiply the `priceInCents` times the `quantity` to get the full cost of each product.
  * @param {Object[]} products - An array of products.
  * @param {number} products[].priceInCents - The price of the product, in cents.
  * @param {number} products[].quantity - The number of products being bought.
@@ -40,7 +55,9 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+  
+}
 
 /**
  * compareLocations()
