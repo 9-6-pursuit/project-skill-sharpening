@@ -101,21 +101,31 @@ function getCartTotal(products) {
  */
 function compareLocations(address1, address2) {
 //test_file line #162
+
 let message = "" 
-  if ((address1.street !== address2.street && address1.city !== address2.city && address1.state !== address2.state && address1.zip !== address2.zip) || 
-  (address1.street === address2.street && address1.city !== address2.city && address1.state === address2.state && address1.zip === address2.zip) ||
-  (address1.street === address2.street && address1.city === address2.city && address1.state !== address2.state && address1.zip === address2.zip)){
-    message = "Addresses are not near each other."
-  } else if (address1.street !== address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip){
-    message = "Same city."
-  } else if (address1.street !== address2.street && address1.city !== address2.city && address1.state === address2.state && address1.zip !== address2.zip){
-    message = "Same state."
-  } else {
-    return "Same building."
-  }
+//   if ((address1.street !== address2.street && address1.city !== address2.city && address1.state !== address2.state && address1.zip !== address2.zip) || 
+//   (address1.street === address2.street && address1.city !== address2.city && address1.state === address2.state && address1.zip === address2.zip) ||
+//   (address1.street === address2.street && address1.city === address2.city && address1.state !== address2.state && address1.zip === address2.zip)){
+//     message = "Addresses are not near each other."
+//   } else if (address1.street !== address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip){
+//     message = "Same city."
+//   } else if (address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip){
+//     message = "Same state."
+//   } else {
+//     return "Same building."
+//   }
 
-return message
-
+// return message
+if (address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+  message = "Same building."
+}else if ( address1.street !== address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip  ){
+  message = "Same city."
+}else if (address1.street !== address2.street && address1.city !== address2.city && address1.state === address2.state && address1.zip !== address2.zip   ){
+  message = "Same state."
+}else {
+  message = "Addresses are not near each other."
+}
+  return message
 }
 
 /**
