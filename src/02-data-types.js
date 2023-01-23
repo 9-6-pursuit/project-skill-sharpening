@@ -181,9 +181,9 @@ function isTruthy(val) {
 function isFalsy(val) {
   if(!val){
     return true
-  } else if(!!val){}
+  } else if(!!val){
     return false
-}
+}}
 
 // Do not change the code below.
 module.exports = {
