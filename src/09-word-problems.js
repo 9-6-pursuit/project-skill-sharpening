@@ -18,8 +18,31 @@
  *
  *  applyDiscount(1000, 9, true);
  *  //> 700
+ * 
+ *  applyDiscount(1000, 40, false)
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+/**
+ * IF AGE <= 10 === .90 DISCOUNT || IF AGE >= 65 === .90 DISCOUNT
+ * ELSE IF W/MEMBER === .80 DISCOUNT 
+ * ELSE IF AGE<= 10 || IF AGE >= 65 && IF W/MEMBER ==== .70 
+ */
+function applyDiscount(priceInCents, age, hasMembership) {
+  let totalPrice = 0;
+//
+if ((age <= 10 || age >= 65) && hasMembership) {
+  totalPrice += priceInCents * .70
+
+} else if (age <= 10 || age >= 65) {
+  totalPrice += priceInCents * .90
+
+} else if (hasMembership) {
+  totalPrice += priceInCents * .80
+
+} else if (age > 10 && age < 65 && !hasMembership) {
+  totalPrice = priceInCents
+}
+return totalPrice
+};
 
 /**
  * getCartTotal()
@@ -40,7 +63,21 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+/**
+ * CREATE VARIABLE TO HOLD TOTAL PRICE
+ * CREATE DOLLAR AMOUNT VARIABLE
+ * LOOP THRU ARRAY
+ * MULTIPLY PRICE IN CENTS BY QUANTITY
+ * IF CART IS EMPTY RETURN 0
+ */
+function getCartTotal(products) {
+  //console.log(products)
+  let totalCost = 0
+  for (let product of products) {
+    totalCost += product.priceInCents * product.quantity
+    }
+    return "$" + (totalCost / 100).toFixed(2)
+};
 
 /**
  * compareLocations()
@@ -79,8 +116,25 @@ function getCartTotal(products) {}
     };
     compareLocations(address1, address2);
     //> "Same city."
+
+    - If the street, city, state, and zip for both addresses are the same, return the string "Same building."
+ * - If the city, state, and zip are the same, return the string "Same city."
+ * - If just the state is the same, return the string "Same state."
+ * - If none of those matches occur, return the string "Addresses are not near each other."
+ * Keep in mind that an address could have the same street address or the same city but be in a different state.
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  //console.log(address1)
+  if (address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return `Same building.`
+  } else if (address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return `Same city.`
+  } else if (address1.state === address2.state) {
+    return `Same state.`
+  } else if (address1.state != address2.state || address1.city != address2.city) {
+    return `Addresses are not near each other.`
+  }
+}
 
 /**
  * gradeAssignments()
@@ -126,8 +180,35 @@ function compareLocations(address1, address2) {}
     //>     status: "SCORE: 4/5",
     //>   },
     //> ];
+*  If the assignment has a `kind` of `"PASS-FAIL"`, set the `status` value to `"PASSED"` if the `score.received` equals the `score.max`. Otherwise, set that `status` to be `"FAILED"`.
+ * - If the assignment has a `kind` of `"PERCENTAGE"`, set the `status` value to be `"PASSED: <percentage>"` if the student scored at least 80.0%. The `<percentage>` should be set to one decimal place. If the student scored less than 80.0%, set the status to `"FAILED: <percentage>"`.
+ * - If the assignment has any other `kind` than the two above, set the `status` value to equal `"SCORE: <received>/<max>"`, where `<received>` is the `score.received` value and `<max>` is the `score.max` value.
+ *adds a key of `status`
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  for (const assignment of assignments) {
+    
+  if (assignment.kind === "PASS-FAIL") {
+    if (assignment.score.received === assignment.score.max) {
+      assignment.status = "PASSED"
+    } else {
+      assignment.status = "FAILED"
+    }
+  }
+  else if (assignment.kind === "PERCENTAGE") {
+    if ((assignment.score.received / assignment.score.max) * 100 >= 80) {
+      assignment.status = "PASSED: " + (assignment.score.received / assignment.score.max * 100).toFixed(1) + "%"
+    } else if ((assignment.score.received / assignment.score.max) * 100 <= 80){
+      assignment.status = "FAILED: " + (assignment.score.received / assignment.score.max * 100).toFixed(1) + "%"
+    } else {
+      assignment.status = "SCORE: " + (assignment.score.received / assignment.score.max * 100).toFixed(1) + "%"
+    }
+  } else {
+    assignment.status = "SCORE: " + assignment.score.received + "/" + assignment.score.max
+  }
+  }
+  return assignments
+  };
 
 /**
  * createLineOrder()
@@ -152,7 +233,23 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
+function createLineOrder(people) {
+  //JS ARRAYS ARE AN ORDERED COLLECTION THAT HOLDS ANY DATA TYPE 
+  let lineQueue = [];
+  for (let peep of people) {
+    //Loop thru array for true memberships then push member name into array
+    if (peep.hasMembership === true) {
+      lineQueue.push(peep.name)
+    }
+  };
+  for (let peep of people) {
+  //Loop again for false memberships then push member name into same array
+  if (peep.hasMembership === false) {
+    lineQueue.push(peep.name)
+  }
+}
+return lineQueue
+};
 
 module.exports = {
   applyDiscount,
