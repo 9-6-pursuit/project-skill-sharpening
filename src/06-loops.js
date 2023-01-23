@@ -233,7 +233,12 @@ newArr.push(array[i]*i)
  *  //> [ 5, 7, 16 ]
  */
 function cumulativeSum(array) {
-
+let newArr = []
+let addAll = 0
+for (let i = 0; i < array.length; i++){
+  addAll += array[i]
+  newArr.push(addAll)
+} return newArr
 
 
 } // Work on this later^^^

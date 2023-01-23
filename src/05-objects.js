@@ -25,8 +25,7 @@ function createEmptyObject() {
  *  //> { whateverKey: 19 }
  */
 function createObjectWithValue(val) {
-  let obj = {}
-  val.obj = val
+  let obj = {whatev:val}
   return obj
 }
 
@@ -41,7 +40,11 @@ function createObjectWithValue(val) {
  *  createObjectWithKey("left");
  *  //> { left: false }
  */
-function createObjectWithKey(key) {}
+function createObjectWithKey(key) {
+  let obj = {}
+  obj[key] = false
+  return obj
+}
 
 /**
  * createObjectWithKeyValuePair()
