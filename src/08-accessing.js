@@ -191,9 +191,15 @@ function getFullAddress(person) {
  */
 function getFlatObject(person) {
   let { names, address, numbers } = person;
-  return { ...names, ...address, numbers }
+     return { ...names, ...address, numbers }
 }
 
+// ALTERNATE ANSWER
+
+// function getFlatObject(person) {
+// let { names, address, numbers } = person;
+//   return { ...names, ...address, numbers }
+// ]
 // Do not change the code below.
 module.exports = {
   getFirstName,

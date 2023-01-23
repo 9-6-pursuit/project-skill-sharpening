@@ -19,7 +19,25 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  let price = priceInCents;
+  if (hasMembership && (age <= 10 || age >= 65)) {
+    price *= 0.7;
+  } else if (hasMembership) {
+    price *= 0.8;
+  } else if (age <= 10 || age >= 65) {
+    price *= 0.9;
+  }
+  return price;
+}
+// let price = priceInCents;
+// if (age <= 10 || age >= 65) {
+//   price *= 0.9;
+// }
+// if (hasMembership) {
+//   price *= 0.8;
+// }
+// return price;
 
 /**
  * getCartTotal()
@@ -40,7 +58,13 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+  let total = 0;
+  for (let index = 0; index < products.length; index++) {
+    total += products[index].priceInCents * products[index].quantity;
+  }
+  return "$" + (total / 100).toFixed(2);
+}
 
 /**
  * compareLocations()
@@ -80,7 +104,17 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  if (address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return "Same building.";
+  } else if (address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return "Same city.";
+  } else if (address1.state === address2.state) {
+    return "Same state.";
+  } else {
+    return "Addresses are not near each other.";
+  }
+}
 
 /**
  * gradeAssignments()
@@ -127,7 +161,16 @@ function compareLocations(address1, address2) {}
     //>   },
     //> ];
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  // for (let i = 0; i < assignments.length; i++) {
+  //   const assignments = assignments.[i];
+  //   if (assingments.kind = "PASS-FAIL";  ) {
+  //     assignments.status = assignments.score.received === assignments.score.max ? "PASSED" : "FAILED";
+  //   } else if (assingments.kind = "PERCENTAGE";) {
+  //     let percentage = assignments.
+  //   }
+  // }
+}
 
 /**
  * createLineOrder()
