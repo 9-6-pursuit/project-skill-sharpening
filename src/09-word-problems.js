@@ -19,7 +19,16 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  let discount = 0;
+  if (age <= 10 || age >= 65) {
+    discount += 0.1;
+  }
+  if (hasMembership) {
+    discount += 0.2;
+  }
+  return priceInCents - (priceInCents * discount)
+}
 
 /**
  * getCartTotal()
@@ -80,7 +89,22 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+    function compareLocations(address1, address2) {
+      let sameStreet = address1.street === address2.street
+      let sameCity = address1.city === address2.city
+      let sameState = address1.state === address2.state
+      let sameZip = address1.zip === address2.zip
+    
+      if (sameStreet && sameCity && sameState && sameZip) {
+        return "Same building.";
+      } else if (sameCity && sameState && sameZip) {
+        return "Same city.";
+      } else if (sameState) {
+        return "Same state.";
+      } else {
+        return "Addresses are not near each other.";
+      }
+    }
 
 /**
  * gradeAssignments()
@@ -152,7 +176,21 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
+    function createLineOrder(people) {
+      let noMemb = []
+      let out = []
+      for (let item of people) {
+        if (item.hasMembership) {
+          out.push(item.name)
+        } else {
+          noMemb.push(item.name)
+        }
+      }
+      for (let item of noMemb) {
+        out.push(item)
+      }
+      return out
+    }
 
 module.exports = {
   applyDiscount,
