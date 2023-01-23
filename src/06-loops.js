@@ -11,7 +11,12 @@
  *  //> 25
  *  (3 + 4 + 5 + 6 + 7 = 25)
  */
-function rangeSum(min, max) {}
+function rangeSum(min, max) {
+  let sum = 0;
+for (let i = min; i <= max; i++) {
+  sum += i;
+  } return sum
+}
 
 /**
  * rangeOdd()
@@ -25,7 +30,14 @@ function rangeSum(min, max) {}
  *  rangeOdd(10, 15);
  *  //> [ 15, 13, 11 ]
  */
-function rangeOdd(min, max) {}
+function rangeOdd(min, max) {
+  let odd = []
+  for (let i = max; i >= min; i--) {
+    if (i % 2 !== 0) {
+      odd.push(i)
+    }
+  } return odd
+}
 
 /**
  * rangeEveryOther()
@@ -39,7 +51,12 @@ function rangeOdd(min, max) {}
  *  rangeEveryOther(11, 18);
  *  //> [ 11, 13, 15, 17 ]
  */
-function rangeEveryOther(min, max) {}
+function rangeEveryOther(min, max) {
+  let other = [];
+  for (let i = min; i <= max; i += 2) {
+    other.push(i)
+  } return other
+}
 
 /**
  * containsWhileLoop()
