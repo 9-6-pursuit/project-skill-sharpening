@@ -19,7 +19,27 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  if ((age <= 10) && hasMembership === true){
+    return priceInCents - (priceInCents * 0.30)
+      }
+  if ((age >= 65) && hasMembership === true){
+        return priceInCents - (priceInCents * 0.30)
+      }
+  
+ if ((age <= 10) && (hasMembership === false )){
+        return priceInCents - (priceInCents * 0.10)
+  }
+   if (age >= 65 && hasMembership === false ){
+    return priceInCents - (priceInCents * 0.10)
+  }
+   if (hasMembership === true){
+return priceInCents - (priceInCents * 0.20)
+  }
+    else {
+    return priceInCents
+  }
+}
 
 /**
  * getCartTotal()
@@ -40,8 +60,29 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+  let cartTotal = 0
 
+  for (i = 0; i < products.length;i++){
+  let cost = products[i].priceInCents
+  let amount = products[i].quantity
+
+if (products[i].name === "T-Shirt"){
+cartTotal += (cost * amount)
+}
+if (products[i].name === "Shoes"){
+  cartTotal += (cost * amount)
+  }
+if (products[i].name === "Skirt"){
+    cartTotal += (cost * amount)
+    } 
+if (products[i].name === "Socks"){
+      cartTotal += (cost * amount)   
+}
+  }
+  cartTotal *= 0.01
+return (`$${cartTotal.toFixed(2).toString()}`)
+}
 /**
  * compareLocations()
  * ---------------------
@@ -80,7 +121,36 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  let st = address1.street
+  let cty = address1.city 
+  let stte = address1.state 
+  let zp = address1.zip 
+
+  let st2 = address2.street
+  let cty2 = address2.city 
+  let stte2 = address2.state 
+  let zp2 = address2.zip 
+
+let building = st + cty + stte + zp
+let building2 = st2 + cty2 + stte2 + zp2  
+   
+ 
+ if(building === building2){
+      return "Same building."
+    }
+
+ else if ((cty === cty2) && (stte === stte2) && (zp === zp2)){
+      return "Same city."
+ }
+ else if (stte === stte2){
+      return "Same state."
+ }
+ else{
+      return "Addresses are not near each other."
+ }
+  }
+
 
 /**
  * gradeAssignments()
@@ -127,7 +197,42 @@ function compareLocations(address1, address2) {}
     //>   },
     //> ];
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  // let highScore = Number(assignments.score.max)
+  // let studentGrade = Number(assignments.score.received)
+
+  for (let i= 0; i < assignments.length; i++) {
+
+let highScore = Number(assignments[i].score.max)
+  let studentGrade = Number(assignments[i].score.received)
+
+  if(assignments[i].kind !== "PASS-FAIL" && assignments[i].kind !== "PERCENTAGE"){
+    assignments[i].status = "SCORE: " + studentGrade + "/" + highScore  
+    }
+       if(assignments[i].kind === "PASS-FAIL"){
+       if(assignments[i].score.received === assignments[i].score.max){
+      assignments[i].status = "PASSED"
+    }
+    else {
+      assignments[i].status = "FAILED"
+   }
+  }
+    if(assignments[i].kind === "PERCENTAGE"){
+      if(((assignments[i].score.received / assignments[i].score.max) * 100 )>= 80){
+        assignments[i].status = "PASSED: " + ((studentGrade / highScore) * 100).toFixed(1) + "%"
+      }
+      else if (((assignments[i].score.received / assignments[i].score.max) * 100  )< 80){
+        assignments[i].status = "FAILED: " +( (studentGrade/ highScore) * 100).toFixed(1) + "%"
+        }
+
+    
+  }
+}
+
+
+return assignments
+
+}
 
 /**
  * createLineOrder()
@@ -152,8 +257,21 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
-
+function createLineOrder(people) {
+let priority = []
+let nonpriority = []
+let orderOf = []
+for (i = 0; i < people.length; i++){
+if(people[i].hasMembership === true){
+ priority.push (people[i].name)
+}
+if(people[i].hasMembership !== true){
+nonpriority.push (people[i].name)
+}
+orderOf =  priority.concat(nonpriority)
+}
+return orderOf
+}
 module.exports = {
   applyDiscount,
   getCartTotal,
