@@ -19,7 +19,36 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+  let costAge = 0
+  let costMem = 0;
+  let totalCost = priceInCents;
+  /*checking the individual objects in the array from 0 - end of .length.*/{
+   let discount = 0;
+   let disCount = 0;
+
+   if (hasMembership === true) {
+       discount += 0.2;
+   } 
+   if (age >= 65 && age <= 10){
+       disCount += 0.1;
+
+   } costMem += (priceInCents - (priceInCents * discount));
+
+   costAge += (priceInCents - (priceInCents * disCount));
+
+     } if ((costMem + costAge) > 0) {
+    return costMem + costAge;
+   } return  totalCost;
+   
+ }
+
+
+
+
+
+
+
 
 /**
  * getCartTotal()
