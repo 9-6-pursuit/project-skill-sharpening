@@ -11,7 +11,15 @@
  *  //> 25
  *  (3 + 4 + 5 + 6 + 7 = 25)
  */
-function rangeSum(min, max) {}
+function rangeSum(min, max) {
+  let result = 0;
+  for (let i = min; i <= max; i++) {
+    if (i >= min && i <= max) {
+      result += i;
+    }
+  }
+  return result;
+}
 
 /**
  * rangeOdd()
@@ -25,7 +33,15 @@ function rangeSum(min, max) {}
  *  rangeOdd(10, 15);
  *  //> [ 15, 13, 11 ]
  */
-function rangeOdd(min, max) {}
+function rangeOdd(min, max) {
+  let resultArray = [];
+  for (let i = max; i >= min; i--) {
+    if (i % 2 === 1) {
+      resultArray.push(i);
+    }
+  }
+  return resultArray;
+}
 
 /**
  * rangeEveryOther()
@@ -39,7 +55,19 @@ function rangeOdd(min, max) {}
  *  rangeEveryOther(11, 18);
  *  //> [ 11, 13, 15, 17 ]
  */
-function rangeEveryOther(min, max) {}
+function rangeEveryOther(min, max) {
+  let resultArr = [];
+  let flagOther = true
+  for (let i = min; i <=max; i++) {
+    if (flagOther === true) {
+      resultArr.push(i);
+      flagOther = false;
+    } else {
+      flagOther = true;
+    }
+  }
+  return resultArr;
+}
 
 /**
  * containsWhileLoop()
@@ -61,7 +89,22 @@ function rangeEveryOther(min, max) {}
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let i = 0;
+  let result;
+  //let resultF;
+  while (i < array.length) {
+    if (array[i] === target) {
+      result = true
+    } 
+    i++;
+  }
+  if (result) {
+    return true
+  } else {
+    return false;
+  }
+}
 
 /**
  * containsForLoop()
@@ -83,7 +126,20 @@ function containsWhileLoop(array, target) {}
  *  containsForLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsForLoop(array, target) {}
+function containsForLoop(array, target) {
+  let result;
+  for (let i = 0; i < array.length; i++){
+    let element = array[i];
+    if (element === target) {
+      result = true
+    }
+  }
+  if (result) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /**
  * targetCount()
@@ -97,7 +153,15 @@ function containsForLoop(array, target) {}
  *  targetCount([ 10, 20, 10, 20, 30 ], 10);
  *  //> 2
  */
-function targetCount(array, target) {}
+function targetCount(array, target) {
+  let result = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      result += 1;
+    }
+  }
+  return result;
+}
 
 /**
  * firstIndexFound()
@@ -117,7 +181,17 @@ function targetCount(array, target) {}
  *  firstIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function firstIndexFound(array, target) {}
+function firstIndexFound(array, target) {
+  let resultArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target){
+        resultArr.push(i);
+    }
+  }
+  if (resultArr.length > 0) {
+    return resultArr.shift()
+  } else return -1;
+}
 
 /**
  * lastIndexFound()
@@ -137,7 +211,20 @@ function firstIndexFound(array, target) {}
  *  lastIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function lastIndexFound(array, target) {}
+function lastIndexFound(array, target) {
+  const resultArr = [];
+  for (let i = 0; i < array.length; i++) {
+    let element = array[i];
+    if (element === target) {
+      resultArr.push(i)
+    }
+  }
+  if(resultArr.length > 0) {
+    return resultArr.pop()
+  } else {
+    return -1;
+  }
+}
 
 /**
  * timesIndex()
@@ -151,7 +238,13 @@ function lastIndexFound(array, target) {}
  *  //> [ 7 * 0, 10 * 1, 11 * 2 ]
  *  //> [ 0, 10, 22 ]
  */
-function timesIndex(array) {}
+function timesIndex(array) {
+  newArr = []
+  for (let i = 0; i < array.length; i++) {
+    newArr.push(array[i]*[i])
+  }
+  return newArr
+}
 
 /**
  * cumulativeSum()
@@ -165,7 +258,15 @@ function timesIndex(array) {}
  *  //> [ 5, 5 + 2, 5 + 2 + 9 ]
  *  //> [ 5, 7, 16 ]
  */
-function cumulativeSum(array) {}
+function cumulativeSum(array) {
+  const newArr = [];
+  let cumulative = 0;
+  for (let i = 0; i < array.length; i++) {
+      cumulative += array[i];
+      newArr.push(cumulative)
+  }
+  return newArr
+}
 
 // Do not change anything below this line.
 module.exports = {
