@@ -31,11 +31,11 @@ function rangeSum(min, max) {
  *  //> [ 15, 13, 11 ]
  */
 function rangeOdd(min, max) {
-  let arr = []
+  let arr = [];
   for (let i = max; i >= min; i--){
      if (i % 2 !== 0) {
     arr.push(i)}
-  } return arr
+  } return arr;
  }
 
 
@@ -52,7 +52,10 @@ function rangeOdd(min, max) {
  *  //> [ 11, 13, 15, 17 ]
  */
 function rangeEveryOther(min, max) {
-  
+ let arr = [];
+  for (let i = min; i <= max; i+=2) {
+    arr.push(i);
+  } return arr;
 }
 
 /**
@@ -75,7 +78,19 @@ function rangeEveryOther(min, max) {
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let i = 0;
+  let result;
+  while (i < array.length) {
+    let val = array[i];
+    i++;
+    if (target == val) {
+      result = true;
+    } else {
+      result = false;
+    }
+  } return result
+}
 
 /**
  * containsForLoop()
@@ -97,7 +112,17 @@ function containsWhileLoop(array, target) {}
  *  containsForLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsForLoop(array, target) {}
+function containsForLoop(array, target) {
+  let result;
+  for (let n = 0; n < array.length; n++) {
+    let  val = array[n];
+    if (val == target) {
+     result = true;
+    } else {
+     result =false;
+    }
+  } return result
+}
 
 /**
  * targetCount()
@@ -111,7 +136,15 @@ function containsForLoop(array, target) {}
  *  targetCount([ 10, 20, 10, 20, 30 ], 10);
  *  //> 2
  */
-function targetCount(array, target) {}
+function targetCount(array, target) {
+  let count = 0;
+  for (let n = 0; n < array.length; n++) {
+    let val = array[n];
+    if (val === target) {
+    count += 1
+    }
+  } return count
+}
 
 /**
  * firstIndexFound()
@@ -131,7 +164,17 @@ function targetCount(array, target) {}
  *  firstIndexFound([ "left", "right", "left" ], "up");
  *  //> -1
  */
-function firstIndexFound(array, target) {}
+function firstIndexFound(array, target) {
+  let result;
+  for (let n = 0; n < array.length; n++) {
+    let val = array[n];
+    if (val === target) {
+      result = n;
+    } else {
+      result = -1;
+    }
+  } return result;
+}
 
 /**
  * lastIndexFound()
