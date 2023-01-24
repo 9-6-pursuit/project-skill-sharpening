@@ -173,14 +173,14 @@ function gradeAssignments(assignments) {
       }
     } 
     if (element.kind === 'PERCENTAGE') {
-      if(element.kind.score.received/element.kind.score.max >= .8){
-        element.status = `PASSED: ${((element.kind.score.received/element.kind.score.max)*100).toFixed(1)}`
+      if(element.score.received/element.score.max >= .8){
+        element.status = `PASSED: ${((element.score.received/element.score.max)*100).toFixed(1)}%`
       } else {
-        element.status = `FAILED: ${((element.kind.score.received/element.kind.score.max)*100).toFixed(1)}`
+        element.status = `FAILED: ${((element.score.received/element.score.max)*100).toFixed(1)}%`
       }
     }
     if (element.kind === 'ESSAY') {
-      element.status = `SCORE: ${element.score.received}/${element.score.max}`
+        element.status = `SCORE: ${element.score.received}/${element.score.max}`
     }
     //kind === 'PASS-FAIL -> `status` = `"PASSED"
     // kind === "PERCENTAGE" -> `status` = `"PASSED: <percentage>" IF at least 80.0%
