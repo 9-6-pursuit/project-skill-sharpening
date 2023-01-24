@@ -112,17 +112,13 @@ function compareLocations(address1, address2) {
       if (address1.zip === address2.zip){
         if (address1.street === address2.street){
           return("Same building.")
-        }
-        else {return "Same city."}
+        }else {return "Same city."}
       }
-    }
-    else {
+    }else {
       return "Same state."}
-  }
-  else {
+  }else {
     return "Addresses are not near each other."
   }
-
 }
 
 /**
@@ -177,7 +173,6 @@ function gradeAssignments(assignments) {
     let total = num1/num2 * 100.0
     total = total.toFixed(1)
     let ans = 0;
-
     if (assignments[x].kind === "PASS-FAIL"){
       if (assignments[x].score.received === assignments[x].score.max){
         ans = "PASSED"
@@ -187,7 +182,6 @@ function gradeAssignments(assignments) {
       }
       assignments[x].status = ans
     }
-
     else if (assignments[x].kind === "PERCENTAGE"){
       if (total >= 80){
         ans = "PASSED"
@@ -197,7 +191,6 @@ function gradeAssignments(assignments) {
       }
       assignments[x].status = `${ans}: ${total}%`
      }
-
      else if(assignments[x].kind === "ESSAY"){
       assignments[x].status = `SCORE: ${num1}/${num2}`
      }
