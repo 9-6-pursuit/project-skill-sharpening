@@ -129,7 +129,14 @@ function containsForLoop(array, target) {
  *  targetCount([ 10, 20, 10, 20, 30 ], 10);
  *  //> 2
  */
-function targetCount(array, target) {}
+function targetCount(array, target) {
+  let counter = 0
+  for (const element of array) {
+    if (element === target) {
+      counter += 1;
+    }
+  } return counter
+}
 
 /**
  * firstIndexFound()
