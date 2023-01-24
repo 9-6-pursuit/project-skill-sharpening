@@ -11,7 +11,12 @@
  *  //> 25
  *  (3 + 4 + 5 + 6 + 7 = 25)
  */
-function rangeSum(min, max) {}
+function rangeSum(min, max) {
+  let sum = 0;
+for (let i = min; i <= max; i++) {
+  sum += i;
+  } return sum
+}
 
 /**
  * rangeOdd()
@@ -25,7 +30,14 @@ function rangeSum(min, max) {}
  *  rangeOdd(10, 15);
  *  //> [ 15, 13, 11 ]
  */
-function rangeOdd(min, max) {}
+function rangeOdd(min, max) {
+  let odd = []
+  for (let i = max; i >= min; i--) {
+    if (i % 2 !== 0) {
+      odd.push(i)
+    }
+  } return odd
+}
 
 /**
  * rangeEveryOther()
@@ -39,7 +51,12 @@ function rangeOdd(min, max) {}
  *  rangeEveryOther(11, 18);
  *  //> [ 11, 13, 15, 17 ]
  */
-function rangeEveryOther(min, max) {}
+function rangeEveryOther(min, max) {
+  let other = [];
+  for (let i = min; i <= max; i += 2) {
+    other.push(i)
+  } return other
+}
 
 /**
  * containsWhileLoop()
@@ -61,7 +78,15 @@ function rangeEveryOther(min, max) {}
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let index = 0
+  while (index < array.length) {
+    if (array[index] === target) {
+      return true
+    }
+    index++
+  } return false
+}
 
 /**
  * containsForLoop()
@@ -83,7 +108,14 @@ function containsWhileLoop(array, target) {}
  *  containsForLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsForLoop(array, target) {}
+function containsForLoop(array, target) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (element === target) {
+      return true
+    }
+  } return false
+}
 
 /**
  * targetCount()
@@ -97,7 +129,14 @@ function containsForLoop(array, target) {}
  *  targetCount([ 10, 20, 10, 20, 30 ], 10);
  *  //> 2
  */
-function targetCount(array, target) {}
+function targetCount(array, target) {
+  let counter = 0
+  for (const element of array) {
+    if (element === target) {
+      counter += 1;
+    }
+  } return counter
+}
 
 /**
  * firstIndexFound()
