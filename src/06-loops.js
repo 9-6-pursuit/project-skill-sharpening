@@ -80,15 +80,13 @@ function rangeEveryOther(min, max) {
  */
 function containsWhileLoop(array, target) {
   let i = 0;
-  let result;
+  let result = false;
   while (i < array.length) {
     let val = array[i];
     i++;
     if (target == val) {
-      result = true;
-    } else {
-      result = false;
-    }
+       result = true;
+    } 
   } return result
 }
 
@@ -113,15 +111,13 @@ function containsWhileLoop(array, target) {
  *  //> false
  */
 function containsForLoop(array, target) {
-  let result;
+  let result = false;
   for (let n = 0; n < array.length; n++) {
     let  val = array[n];
     if (val == target) {
      result = true;
-    } else {
-     result =false;
     }
-  } return result
+  } return result;
 }
 
 /**
@@ -165,15 +161,11 @@ function targetCount(array, target) {
  *  //> -1
  */
 function firstIndexFound(array, target) {
-  let result;
   for (let n = 0; n < array.length; n++) {
-    let val = array[n];
-    if (val === target) {
-      result = n;
-    } else {
-      result = -1;
-    }
-  } return result;
+    if (array[n] === target) {
+      return n;
+    } 
+  } return -1
 }
 
 /**
