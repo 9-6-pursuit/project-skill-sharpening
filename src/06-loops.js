@@ -78,7 +78,15 @@ function rangeEveryOther(min, max) {
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let index = 0
+  while (index < array.length) {
+    if (array[index] === target) {
+      return true
+    }
+    index++
+  } return false
+}
 
 /**
  * containsForLoop()
@@ -100,7 +108,14 @@ function containsWhileLoop(array, target) {}
  *  containsForLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsForLoop(array, target) {}
+function containsForLoop(array, target) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (element === target) {
+      return true
+    }
+  } return false
+}
 
 /**
  * targetCount()
