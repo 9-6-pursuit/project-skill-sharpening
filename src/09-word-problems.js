@@ -56,7 +56,11 @@ function applyDiscount(priceInCents, age, hasMembership) {
  *  //> "$30.00"
  */
 function getCartTotal(products) {
-  let totalPrice = 0
+  // let totalPrice = 0
+
+  // for (let product of products) {
+
+  // }
 
 
 }
@@ -99,7 +103,16 @@ function getCartTotal(products) {
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+  if (address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return "Same building."
+  } if (address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip) {
+    return "Same city."
+  } if (address1.state === address2.state) {
+    return "Same state."
+  } 
+  return "Addresses are not near each other."
+}
 
 /**
  * gradeAssignments()
@@ -171,7 +184,17 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
+function createLineOrder(people) {
+  // let array = [] 
+
+  // for (let peep of people) {
+  //   if (peep.hasMembership) {
+  //     array.push(peep.name)
+  //   } if (!peep.hasMembership) {
+  //     array.push(peep.name)
+  //   }
+  // } return array
+} 
 
 module.exports = {
   applyDiscount,

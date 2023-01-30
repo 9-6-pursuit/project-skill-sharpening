@@ -81,7 +81,16 @@ function rangeEveryOther(min, max) {
  *  containsWhileLoop([ "left", "up", "right" ], "down");
  *  //> false
  */
-function containsWhileLoop(array, target) {}
+function containsWhileLoop(array, target) {
+  let index = 0
+  while (index < array.length) {
+    if (array[index] === target) {
+      return true
+    }
+    index += 1
+  }
+  return false 
+}
 
 
 /**
@@ -105,14 +114,22 @@ function containsWhileLoop(array, target) {}
  *  //> false
  */
 function containsForLoop(array, target) {
-  for(let i = 0; i < array.length; i++) {
-    if (array[i] === target) {
-      return true
-    } else {
-      return false
-    }
-  }
+    for(let i = 0; i < array.length; i++) {
+      if (array[i] === target) {
+        return true
+      }
+    } 
+    return false
+
+  // for(let i = 0; i < array.length; i++) {
+  //   if (array[i] === target) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 }
+
 /**
  * targetCount()
  * ---------------------
@@ -154,9 +171,12 @@ function targetCount(array, target) {
  *  //> -1
  */
 function firstIndexFound(array, target) {
-
-    
-  }
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return array.indexOf(target)
+    }
+  } return -1
+}    
 
 /**
  * lastIndexFound()
@@ -177,7 +197,11 @@ function firstIndexFound(array, target) {
  *  //> -1
  */
 function lastIndexFound(array, target) {
-  
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return array.lastIndexOf(target)
+    } 
+  } return -1
 }
 
 /**
@@ -213,7 +237,16 @@ function timesIndex(array) {
  *  //> [ 5, 5 + 2, 5 + 2 + 9 ]
  *  //> [ 5, 7, 16 ]
  */
-function cumulativeSum(array) {}
+function cumulativeSum(array) {
+//   let sumArray = []
+//   let count = 0
+//   for (let i = 0; i < array.length; i++) {
+//     count += array[i]
+//     sumArray.push(count + i)
+//     count += array[i]
+//     sumArray.push(count + i)
+//   } return sumArray
+}
 
 // Do not change anything below this line.
 module.exports = {

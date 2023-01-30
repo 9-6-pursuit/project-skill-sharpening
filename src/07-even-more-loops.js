@@ -189,14 +189,13 @@ function findLargest(array) {
  *  //> false
  */
 function findEqual(array, selected) {
-  for(let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i] === selected) {
       return true
-    } else {
-      return false
     }
-  }
+  } return false
 }
+
 
 /**
  * removeDuplicates()
@@ -214,13 +213,12 @@ function findEqual(array, selected) {
  */
 
 function removeDuplicates(array) {
-  let newArray = []
-
-  for(let i = 0; i < array.length; i++) {
-    if (!newArray.includes(array[i])) {
-      newArray.push(array[i])
+  let freshArray = []
+  for (let i = 0; i < array.length; i++) {
+    if (!freshArray.includes(array[i])) {
+      freshArray.push(array[i]) 
     } 
-  } return newArray
+  } return freshArray
 }
 
 // Do not change any code below this line.
