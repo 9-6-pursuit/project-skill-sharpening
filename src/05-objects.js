@@ -80,7 +80,7 @@ function createObjectWithKeyValuePair(key, val) {
  *  getNameFromObject({ name: "Jay" });
  *  //> "Jay"
  */
-//NEED TO DO THIS!!!
+// CORRECT!
 function getNameFromObject(object) {
   return object.name
 }
@@ -96,7 +96,7 @@ function getNameFromObject(object) {
  *  getAgeFromObject({ age: 30 });
  *  //> 30
  */
-//NEED TO DO THIS!
+
 function getAgeFromObject(object) {
   return object.age
 }
@@ -113,7 +113,7 @@ function getAgeFromObject(object) {
  *  addValueToObject({ left: true }, false);
  *  //> { left: true, key: false }
  */
-//NEED TO DO THIS! done
+// CORRECT!
 function addValueToObject(object, val) {
   object.name = val
   return object
@@ -131,7 +131,7 @@ function addValueToObject(object, val) {
  *  addKeyToObject({ right: false }, "left");
  *  //> { right: false, left: true }
  */
-//NEED TO DO THIS!
+// CORRECT!
 function addKeyToObject(object, key) {
   object[key] = 7;
   return object
