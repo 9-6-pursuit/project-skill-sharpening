@@ -19,7 +19,52 @@
  *  applyDiscount(1000, 9, true);
  *  //> 700
  */
-function applyDiscount(priceInCents, age, hasMembership) {}
+function applyDiscount(priceInCents, age, hasMembership) {
+let discount
+if (hasMembership === true && age <= 10){
+  priceInCents *= 0.7
+}
+else if (hasMembership === true && age >= 65) {
+  discount = (priceInCents * 0.3)
+  priceInCents -= discount
+}
+else if (hasMembership != true && age <= 10){
+  priceInCents *= 0.9
+}
+else if (hasMembership != true && age >= 65){
+  priceInCents *= 0.9
+}
+else if (hasMembership === true && age > 10) {
+  priceInCents *= 0.8
+}
+else {
+  return priceInCents
+} 
+  return priceInCents 
+}
+// function applyDiscount(priceInCents, age, hasMembership) {
+//  let discount
+// if (hasMembership === true && age <= 10){
+//   priceInCents *= 0.7
+// }
+// else if (hasMembership === true && age >= 65){
+//   discount = (priceInCents * 0.3)
+//   priceInCents -= discount
+// }
+// else if (hasMembership != true && age <= 10) {
+//   priceInCents *= 0.9
+// }
+// else if (hasMembership != true && age >= 65){
+//   priceInCents *= 0.9
+// }
+// else if (hasMembership === true && age > 10) {
+//   priceInCents *= 0.8
+// } 
+// else {
+//   return priceInCents
+// }
+// return priceInCents
+// }
 
 /**
  * getCartTotal()
@@ -40,7 +85,15 @@ function applyDiscount(priceInCents, age, hasMembership) {}
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+totalAmount = 0
+for (let i = 0; i < products.length; i++) {
+  totalAmount += products[i].priceInCents * products[i].quantity
+  // totalAmount += products[i].priceInCents 
+}
+return `$${(totalAmount/=100).toFixed(2)}`
+    
+}
 
 /**
  * compareLocations()
@@ -80,8 +133,23 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
-
+function compareLocations(address1, address2) {
+  if (address1.street === address2.street && address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip){
+    return `Same building.`
+  }
+  if (address1.city === address2.city && address1.state === address2.state && address1.zip === address2.zip){
+    return `Same city.`
+  }
+  if (address1.state === address2.state){
+    return `Same state.`
+  }
+  else {
+    return `Addresses are not near each other.`
+  }
+  
+  // console.log(address1)
+  // console.log(address2)
+}
 /**
  * gradeAssignments()
  * ---------------------
@@ -118,7 +186,7 @@ function compareLocations(address1, address2) {}
     //>   { 
     //>     kind: "PERCENTAGE",
     //>     score: { received: 7, max: 9 },
-    //>     status: "FAILED: 77.8%",
+    //>     status: "FAILED: 33",
     //>   },
     //>   { 
     //>     kind: "ESSAY",
@@ -127,7 +195,37 @@ function compareLocations(address1, address2) {}
     //>   },
     //> ];
  */
-function gradeAssignments(assignments) {}
+function gradeAssignments(assignments) {
+  let score = 0
+  for (let i = 0; i < assignments.length; i++) {
+      // assignments[i].status
+    if (assignments[i].kind === "PASS-FAIL" && assignments[i].score.received === assignments[i].score.max) 
+    { assignments[i].status = "PASSED" }
+
+    else if (assignments[i].kind === "PASS-FAIL" && assignments[i].score.received != assignments[i].score.max) {
+      assignments[i].status =`FAILED`
+    }
+    else if (assignments[i].kind === "PERCENTAGE" && assignments[i].score.received/assignments[i].score.max >= .8) {
+      score = (assignments[i].score.received/assignments[i].score.max) *100
+
+      //.toFixed is not a destructive method it only copies a type
+      assignments[i].status = `PASSED: ${score.toFixed(1)}%`
+    } 
+     else if (assignments[i].kind === "PERCENTAGE" && assignments[i].score.received/assignments[i].score.max < .8){
+      score = (assignments[i].score.received/assignments[i].score.max) * 100 
+      
+      assignments[i].status =`FAILED: ${score.toFixed(1)}%`
+    }
+    else if (assignments[i].kind !== "PERCENTAGE" && assignments[i].kind != "PASS-FAIL"){
+  
+      assignments[i].status =`SCORE: ${assignments[i].score.received}/${assignments[i].score.max}`
+  }
+  }
+  return assignments
+
+ 
+  //  console.log(assignments)
+}
 
 /**
  * createLineOrder()
@@ -152,7 +250,27 @@ function gradeAssignments(assignments) {}
     createLineOrder(people);
     //> [ "Ray Anderson", "America Marsh", "Wade Carson", "Patience Patel" ]
  */
-function createLineOrder(people) {}
+function createLineOrder(people) {
+ let lineOrder = []
+ let nonPriority = []
+ let priority = []
+ for (let i = 0; i < people.length; i++) {
+  if (people[i].hasMembership === true){
+    priority.push(people[i].name)
+  }
+  if(people[i].hasMembership != true) {
+    nonPriority.push(people[i].name)
+  }
+ }
+ lineOrder = priority.concat(nonPriority)
+ return lineOrder
+ 
+
+
+console.log(people)
+console.log(people[0])
+console.log(people[1].name)
+}
 
 module.exports = {
   applyDiscount,
