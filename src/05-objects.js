@@ -44,11 +44,15 @@ return obj
  *  //> { left: false }
  */
 function createObjectWithKey(key) {
-  let obj = {
-    [key]: "anything"
-   }
-
+  // let obj = {
+  //   [key]: "anything"
+  // }
+  //OR IT CAN BE DONE LIKE THIS
+ let obj = {} 
+obj[key] = "woah"
  return obj
+ // OR IT CAN BE DONE LIKE THIS 
+ return {[key]: "anything"}
 }
 
 /**
@@ -64,11 +68,18 @@ function createObjectWithKey(key) {
  *  //> { left: "right" }
  */
 function createObjectWithKeyValuePair(key, val) {
-  
+  // CAN BE DONE LIKE THIS 
   let obj = {
     [key]: val,
    }
  return obj
+
+// OR LIKE THIS
+ /* let obj = {} 
+obj[key] = val
+*/
+// ALSO CAN BE DONE LIKE THIS
+return {[key]: val}
 }
 
 /**

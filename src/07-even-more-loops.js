@@ -210,10 +210,12 @@ function removeDuplicates(array) {
         newArray.push(array[i]); 
     } 
 }
+// for (element of array)
+// array.forEach(element )
 return newArray;
-
-let arr = []
-let trash =
+// Another way to remove it to assign each one to different array until you form the array needed
+// ex: let arr = []
+// let trash =
 
 }
   

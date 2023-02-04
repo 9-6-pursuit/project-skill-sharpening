@@ -42,6 +42,7 @@ function findLarger(a, b) {
   }else{
     return b
   }
+  // ANOTHER WAY TO FIND THE MAX: return a > b ? a : b OR return Math.max(a,b)
 }
 
 /**
@@ -69,6 +70,14 @@ function findLargerOrTie(a, b) {
   else {
     return b
   }
+
+  /* if (a === b){
+    return "tie"
+  }
+  else {
+    a > b ? a : b
+  }
+*/
   }
   
 
@@ -255,6 +264,7 @@ function evenOrOdd(a) {
   else {
     return "Odd"
   }
+  
 }
 
 /**

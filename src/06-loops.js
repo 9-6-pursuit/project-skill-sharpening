@@ -103,7 +103,9 @@ function rangeEveryOther(min, max) {
 function containsWhileLoop(array, target) {
   let i = 0
   while (i <array.length){
-   if (array.indexOf(target) != -1){
+   if (array.indexOf(target) != -1)
+   // if (array.[index] === target)
+   {
    return true 
    } i++
    }return false
@@ -150,6 +152,12 @@ function containsForLoop(array, target){
  *  //> 2
  */
 function targetCount(array, target){
+  // let counter = 0
+  // for (const element of object) {
+  //   if(element === target){
+  //     counter++
+  //   }
+  // } return counter
   return array.filter((t) => (t === target)).length;
 }
 

@@ -20,15 +20,15 @@
  *  //> 700
  */
 function applyDiscount(priceInCents, age, hasMembership) {
- let discount
+let discount
 if (hasMembership === true && age <= 10){
   priceInCents *= 0.7
 }
-else if (hasMembership === true && age >= 65){
+else if (hasMembership === true && age >= 65) {
   discount = (priceInCents * 0.3)
   priceInCents -= discount
 }
-else if (hasMembership != true && age <= 10) {
+else if (hasMembership != true && age <= 10){
   priceInCents *= 0.9
 }
 else if (hasMembership != true && age >= 65){
@@ -36,12 +36,35 @@ else if (hasMembership != true && age >= 65){
 }
 else if (hasMembership === true && age > 10) {
   priceInCents *= 0.8
-} 
+}
 else {
   return priceInCents
+} 
+  return priceInCents 
 }
-return priceInCents
-}
+// function applyDiscount(priceInCents, age, hasMembership) {
+//  let discount
+// if (hasMembership === true && age <= 10){
+//   priceInCents *= 0.7
+// }
+// else if (hasMembership === true && age >= 65){
+//   discount = (priceInCents * 0.3)
+//   priceInCents -= discount
+// }
+// else if (hasMembership != true && age <= 10) {
+//   priceInCents *= 0.9
+// }
+// else if (hasMembership != true && age >= 65){
+//   priceInCents *= 0.9
+// }
+// else if (hasMembership === true && age > 10) {
+//   priceInCents *= 0.8
+// } 
+// else {
+//   return priceInCents
+// }
+// return priceInCents
+// }
 
 /**
  * getCartTotal()
