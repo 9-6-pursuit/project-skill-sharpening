@@ -194,8 +194,6 @@ function getFirstAndLastCharacter(a) {
 
 
 
-
-
 // Do not change the code below.
 module.exports = {
   alwaysTrue,
