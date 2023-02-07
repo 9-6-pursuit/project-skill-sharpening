@@ -109,7 +109,15 @@ function getCartTotal(products) {
     //> "Same city."
  */
 function compareLocations(address1, address2) {
-  
+  if (address1.street === address2.street & address1.state === address2.state && address1.city === address2.city && address1.zip === address2.zip) {
+    return "Same building."
+  } else if (address1.state === address2.state && address1.city === address2.city && address1.zip === address2.zip) {
+    return "Same city."
+  } else if (address1.state === address2.state) {
+    return "Same state."
+  } else {
+    return "Addresses are not near each other."
+  }
 }
 
 /**
