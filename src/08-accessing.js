@@ -191,20 +191,16 @@ function getFullAddress(person) {
     };
  */
 function getFlatObject(person) {
- let flatOb = {}
-  // flatOb.first = person.names.first,
-  // flatOb.middle = person.names.middle,
-  // flatOb.last = person.names.last,
-  // flatOb.street = person.address.street,
-  // flatOb.unit = person.address.unit,
-  // flatOb.city = person.address.city,
-  // flatOb.state = person.address.state,
-  // flatOb.zip = person.address.zip,
-  // flatOb.numbers = person.numbers,
-
-  // this takes away almost 20 passing...
-
-return flatOb;
+  let flat = {}
+  for (let name in person.names) {
+    flat[name] = person.names[name];
+  } 
+  for (let name in person.address) {
+    flat[name] = person.address[name];
+  }
+  flat.numbers = person.numbers;
+  return flat;
+  
 }
 
 
