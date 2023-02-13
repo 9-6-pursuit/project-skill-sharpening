@@ -20,35 +20,20 @@
  *  //> 700
  */
 function applyDiscount(priceInCents, age, hasMembership) {
-  let costAge = 0
-  let costMem = 0;
-  let totalCost = priceInCents;
-  /*checking the individual objects in the array from 0 - end of .length.*/{
-   let discount = 0;
-   let disCount = 0;
-
-   if (hasMembership === true) {
-       discount += 0.2;
-   } 
-   if (age >= 65 && age <= 10){
-       disCount += 0.1;
-
-   } costMem += (priceInCents - (priceInCents * discount));
-
-   costAge += (priceInCents - (priceInCents * disCount));
-
-     } if ((costMem + costAge) > 0) {
-    return costMem + costAge;
-   } return  totalCost;
-   
- }
-
-
-
-
-
-
-
+  let totalAmount = 0;
+  let memDiscount = 0;
+  let ageDiscount = 0;
+  if (hasMembership === true) {
+  memDiscount = .20
+ } if (age <= 10 || age >= 65) {
+  ageDiscount = .1
+ } totalAmount = (1 - (memDiscount + ageDiscount)) * priceInCents
+  return totalAmount
+}
+ 
+ 
+ 
+ 
 
 /**
  * getCartTotal()
@@ -69,7 +54,13 @@ function applyDiscount(priceInCents, age, hasMembership) {
     getCartTotal(cart);
  *  //> "$30.00"
  */
-function getCartTotal(products) {}
+function getCartTotal(products) {
+  let cartTotal = 0;
+  for (let i = 0; i < products.length; i++) {
+    cartTotal += products[i].priceInCents * products[i].quantity;
+  }
+  return `$${(cartTotal / 100).toFixed(2)}`
+}
 
 /**
  * compareLocations()
@@ -109,7 +100,13 @@ function getCartTotal(products) {}
     compareLocations(address1, address2);
     //> "Same city."
  */
-function compareLocations(address1, address2) {}
+function compareLocations(address1, address2) {
+    if (address1.city !== address2.city || address1.state !== address2.state || address1.zip !== address2.zip) {
+      return "Addresses are not near each other."
+    } else {
+      return "Same state."
+    }
+  }
 
 /**
  * gradeAssignments()

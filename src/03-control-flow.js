@@ -184,6 +184,7 @@ function calculateLetterGrade(grade) {
   } else if (grade <= 59) {
     return "F"
 } 
+
 }
 
 /**
